@@ -1,7 +1,7 @@
-import "@mui/material/styles";
+import "@mui/material";
 import { ThemeConfig } from "@/themes";
 
-declare module "@mui/material/styles" {
+declare module "@mui/material" {
   interface Theme extends ThemeConfig {}
 
   interface ThemeOptions extends Partial<ThemeConfig> {}
