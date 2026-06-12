@@ -51,7 +51,7 @@ export const routerIdentities: Record<string, RouterIdentity> = {
 
     name: "Luxenn<span>HOTSPOT</span>",
 
-    supportNumber: "+254722222222",
+    supportNumber: "+254729424101",
 
     theme: {
       ...defaultTheme,
