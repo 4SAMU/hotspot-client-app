@@ -1,5 +1,5 @@
 import React from "react";
-import { MainWrapper } from "./layout-styles";
+import { MainWrapper } from "./layoutStyles";
 import Footer from "../footer";
 import HeaderSection from "../header-section";
 
