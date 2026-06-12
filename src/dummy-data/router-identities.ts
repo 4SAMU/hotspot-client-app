@@ -5,7 +5,7 @@ export const routerIdentities: Record<string, RouterIdentity> = {
   "classic-barber-shop": {
     identity: "classic-barber-shop",
 
-    name: "Classic Barber Shop",
+    name: "Classic <span>Barber</span> Shop",
 
     supportNumber: "+254700000000",
 
@@ -27,7 +27,7 @@ export const routerIdentities: Record<string, RouterIdentity> = {
   "cuh-hotel": {
     identity: "cuh-hotel",
 
-    name: "Cuh Hotel",
+    name: "Cuh Hotel <span>WIFI</span>",
 
     supportNumber: "+254711111111",
 
@@ -42,6 +42,22 @@ export const routerIdentities: Record<string, RouterIdentity> = {
         success: "#2563EB",
         background: "#0D1117",
         textPrimary: "#FFFFFF",
+      },
+    },
+  },
+
+  "luxenn-hotspot": {
+    identity: "luxenn-hotspot",
+
+    name: "Luxenn<span>HOTSPOT</span>",
+
+    supportNumber: "+254722222222",
+
+    theme: {
+      ...defaultTheme,
+
+      colors: {
+        ...defaultTheme.colors,
       },
     },
   },

@@ -10,17 +10,11 @@ const HeaderSection = () => {
 
   return (
     <HeaderTitle>
-      <h1>
-        {routerIdentity ? (
-          <>
-            {routerIdentity.name} <span>WIFI</span>
-          </>
-        ) : (
-          <>
-            Luxenn<span>HOTSPOT</span>
-          </>
-        )}
-      </h1>
+      <h1
+        dangerouslySetInnerHTML={{
+          __html: routerIdentity?.name ?? "Luxenn <span>HOTSPOT</span>",
+        }}
+      />
 
       <div className="tagline">Fast · Instant · Reliable</div>
     </HeaderTitle>
