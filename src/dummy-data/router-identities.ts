@@ -37,9 +37,9 @@ export const routerIdentities: Record<string, RouterIdentity> = {
       colors: {
         ...defaultTheme.colors,
 
-        primary: "#2563EB",
+        primary: "#8de619",
 
-        success: "#2563EB",
+        success: "#46eb25",
         background: "#0D1117",
         textPrimary: "#FFFFFF",
       },
