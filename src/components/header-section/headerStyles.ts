@@ -13,7 +13,7 @@ export const HeaderTitle = styled("header")(({ theme }) => ({
   flexDirection: "column",
   alignItems: "center",
   justifyContent: "center",
-  margin: "40px 0",
+  margin: "40px 0 20px 0", //top right bottom left
 
   h1: {
     fontSize: "1.5rem",
@@ -36,7 +36,7 @@ export const OfferBannerSection = styled("div")(({ theme }) => ({
   display: "flex",
   flexDirection: "column",
   marginTop: "20px",
-  color: theme.colors.textPrimary,
+  color: theme.colors.textSecondary,
   width: "100%",
 }));
 
