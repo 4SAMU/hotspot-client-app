@@ -4,6 +4,7 @@ import "@/styles/globals.css";
 import { NextPage } from "next";
 import type { AppProps } from "next/app";
 import { ReactElement, ReactNode } from "react";
+import "react-alice-carousel/lib/alice-carousel.css";
 
 // Types for page and layout props
 export type NextPageWithLayout<P = object, IP = P> = NextPage<P, IP> & {

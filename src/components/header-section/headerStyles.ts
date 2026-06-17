@@ -41,15 +41,39 @@ export const OfferBannerSection = styled("div")(({ theme }) => ({
 }));
 
 export const OfferBannerContainer = styled("div")(({ theme }) => ({
+  position: "relative",
   display: "flex",
   flexDirection: "row",
-  color: theme.colors.textPrimary,
-  marginTop: "20px",
+  marginTop: "8px",
   width: "100%",
 
-  gap: "20px",
-  //enable horizontal scrolling on small screens
-  overflowX: "auto",
+  ".button-controller_container": {
+    display: "flex",
+    flexDirection: "row",
+    gap: "6px",
+    position: "absolute",
+    bottom: "10px",
+    left: "50%",
+    transform: "translateX(-50%)",
+  },
+
+  ".button-controller": {
+    width: "4px",
+    height: "8px",
+    backgroundColor: theme.colors.textSecondary,
+    opacity: 0.4,
+    cursor: "pointer",
+    transition: "all 0.25s ease",
+
+    // 🔷 true parallelogram shape
+    transform: "skewX(-25deg)",
+  },
+
+  ".button-controller.active": {
+    backgroundColor: theme.colors.primary,
+    opacity: 1,
+    transform: "skewX(-25deg) scale(1.2)",
+  },
 }));
 
 export const OfferBannerCard = styled("div")(({ theme }) => ({
@@ -58,7 +82,7 @@ export const OfferBannerCard = styled("div")(({ theme }) => ({
   backgroundColor: `${theme.colors.primary}50`, // add 99 for 60% opacity
   color: theme.colors.textPrimary,
   borderRadius: "8px",
-  height: "100px",
+  height: "120px",
   maxWidth: "400px",
   minWidth: "400px",
   padding: "20px",
