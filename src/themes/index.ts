@@ -26,6 +26,7 @@ export interface ThemeColors {
   textSecondary: string;
 
   border: string;
+  border2: string;
   divider: string;
 }
 

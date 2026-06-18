@@ -87,3 +87,38 @@ export const OfferBannerCard = styled("div")(({ theme }) => ({
   minWidth: "400px",
   padding: "20px",
 }));
+
+export const CantReconnectContainer = styled("div")(({ theme }) => ({
+  display: "flex",
+  flexDirection: "column",
+  justifyContent: "center",
+  color: theme.colors.textPrimary,
+  border: `1px solid ${theme.colors.border2}`,
+  width: "100%",
+  borderRadius: "20px",
+  padding: "10px",
+  fontSize: "11px",
+  marginTop: "20px",
+  backgroundColor: `${theme.colors.border2}10`, // add 99 for 60% opacity
+
+  ul: {
+    margin: 0,
+    paddingLeft: "20px",
+    listStylePosition: "outside",
+  },
+
+  li: {
+    paddingLeft: "2px",
+  },
+
+  ".my-account-link": {
+    color: theme.colors.border2,
+    textDecoration: "underline dashed",
+    fontWeight: "bold",
+    fontSize: "12px",
+  },
+
+  ".support-link": {
+    color: theme.colors.textPrimary,
+  },
+}));

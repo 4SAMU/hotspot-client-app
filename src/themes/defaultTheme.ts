@@ -15,6 +15,7 @@ export const defaultTheme: ThemeConfig = {
     textSecondary: "#8B949E",
 
     border: "#21262D",
+    border2: "#0bd7f1",
     divider: "#30363D",
   },
 
