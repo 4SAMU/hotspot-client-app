@@ -7,10 +7,15 @@ export const MainWrapper = styled(Box)(({ theme }) => ({
   minHeight: "100vh",
   position: "relative",
   maxWidth: "450px",
-  border: "1px solid #e0e0e099",
+  // border: "1px solid #e0e0e099",
   background: theme.colors.background,
 
   main: {
-    minHeight: "calc(100vh - 160px)", // Adjust for header and footer height
+    display: "flex",
+    flexDirection: "column",
+    alignItems: "center",
+    minHeight: "calc(100vh - 180px)", // Adjust for header and footer height
+    width: "100%",
+    padding: "10px 20px",
   },
 }));

@@ -1,7 +1,5 @@
 import { useRouterIdentity } from "@/hooks/useRouterIdentity";
-import { HeaderSectionContainer, HeaderTitle } from "./headerStyles";
-import OfferBanner from "./offerBanner";
-import CantReconnect from "./cantReconnect";
+import { HeaderTitle } from "./headerStyles";
 
 const HeaderSection = () => {
   const { routerIdentity, loading } = useRouterIdentity();
@@ -11,19 +9,15 @@ const HeaderSection = () => {
   }
 
   return (
-    <HeaderSectionContainer>
-      <HeaderTitle>
-        <h1
-          dangerouslySetInnerHTML={{
-            __html: routerIdentity?.name ?? "Luxenn <span>HOTSPOT</span>",
-          }}
-        />
+    <HeaderTitle>
+      <h1
+        dangerouslySetInnerHTML={{
+          __html: routerIdentity?.name ?? "Luxenn <span>HOTSPOT</span>",
+        }}
+      />
 
-        <div className="tagline">Fast · Instant · Reliable</div>
-      </HeaderTitle>
-      <OfferBanner />
-      <CantReconnect />
-    </HeaderSectionContainer>
+      <div className="tagline">Fast · Instant · Reliable</div>
+    </HeaderTitle>
   );
 };
 

@@ -1,7 +1,14 @@
+import { useRouterIdentity } from "@/hooks/useRouterIdentity";
 import { CantReconnectContainer } from "./headerStyles";
 import Link from "next/link";
 
 const CantReconnect = () => {
+  const { routerIdentity, loading } = useRouterIdentity();
+
+  if (loading) {
+    return <>Loading...</>;
+  }
+
   return (
     <CantReconnectContainer>
       <ul>
@@ -17,7 +24,7 @@ const CantReconnect = () => {
         <li>
           Need help? Call support:{" "}
           <Link className="support-link" href="tel:+254712345678">
-            254 712 345 678
+            {routerIdentity?.supportNumber}
           </Link>
         </li>
       </ul>

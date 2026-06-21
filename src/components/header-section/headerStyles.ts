@@ -1,13 +1,5 @@
 import { styled } from "@mui/material";
 
-export const HeaderSectionContainer = styled("section")(({ theme }) => ({
-  display: "flex",
-  flexDirection: "column",
-  alignItems: "center",
-  justifyContent: "center",
-  padding: "20px",
-}));
-
 export const HeaderTitle = styled("header")(({ theme }) => ({
   display: "flex",
   flexDirection: "column",
@@ -35,7 +27,6 @@ export const HeaderTitle = styled("header")(({ theme }) => ({
 export const OfferBannerSection = styled("div")(({ theme }) => ({
   display: "flex",
   flexDirection: "column",
-  marginTop: "20px",
   color: theme.colors.textSecondary,
   width: "100%",
 }));
@@ -46,6 +37,14 @@ export const OfferBannerContainer = styled("div")(({ theme }) => ({
   flexDirection: "row",
   marginTop: "8px",
   width: "100%",
+
+  ".alice-carousel": {
+    width: "100%",
+  },
+
+  ".alice-carousel__stage-item": {
+    width: "100% !important",
+  },
 
   ".button-controller_container": {
     display: "flex",
@@ -79,13 +78,20 @@ export const OfferBannerContainer = styled("div")(({ theme }) => ({
 export const OfferBannerCard = styled("div")(({ theme }) => ({
   display: "flex",
   flexDirection: "row",
-  backgroundColor: `${theme.colors.primary}50`, // add 99 for 60% opacity
+  backgroundColor: `${theme.colors.primary}50`,
   color: theme.colors.textPrimary,
   borderRadius: "8px",
-  height: "120px",
-  maxWidth: "400px",
-  minWidth: "400px",
+  minHeight: "120px",
+
+  width: "100%",
+  maxWidth: "100%",
+
   padding: "20px",
+  boxSizing: "border-box",
+
+  "@media (max-width: 600px)": {
+    padding: "16px",
+  },
 }));
 
 export const CantReconnectContainer = styled("div")(({ theme }) => ({
@@ -95,7 +101,7 @@ export const CantReconnectContainer = styled("div")(({ theme }) => ({
   color: theme.colors.textPrimary,
   border: `1px solid ${theme.colors.border2}`,
   width: "100%",
-  borderRadius: "20px",
+  borderRadius: "10px",
   padding: "10px",
   fontSize: "11px",
   marginTop: "20px",
