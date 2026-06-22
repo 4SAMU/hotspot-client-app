@@ -1,7 +1,7 @@
 export interface ThemeConfig {
   colors: ThemeColors;
 
-  typography: ThemeTypography;
+  customTypography: ThemeCustomTypography;
 
   surfaces: ThemeSurfaces;
 
@@ -30,8 +30,10 @@ export interface ThemeColors {
   divider: string;
 }
 
-export interface ThemeTypography {
-  fontFamily: string;
+export interface ThemeCustomTypography {
+  fontFamilyBase: string;
+  fontFamilyTitle: string;
+  fontFamilyParagraph: string;
 
   headingWeight: number;
   bodyWeight: number;

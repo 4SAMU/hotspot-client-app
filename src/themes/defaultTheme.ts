@@ -19,8 +19,10 @@ export const defaultTheme: ThemeConfig = {
     divider: "#30363D",
   },
 
-  typography: {
-    fontFamily: "Plus Jakarta Sans",
+  customTypography: {
+    fontFamilyBase: '"DM Sans", sans-serif',
+    fontFamilyTitle: '"JetBrains Mono", monospace',
+    fontFamilyParagraph: '"Open Sans", sans-serif',
 
     headingWeight: 800,
     bodyWeight: 400,

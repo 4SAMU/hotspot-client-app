@@ -12,9 +12,9 @@ const PackagesSection = () => {
       <header>Our Deals 🔥</header>
       <PackagesCardContainer>
         <PackageCard>
-          <Box className="title">14 Hours Plan</Box>
-          <Box className="price">KES 30</Box>
+          <h3>14 Hours</h3>
           <p>Enjoy 14hrs unlimited access</p>
+          <span className="price">KES 30</span>
           <PkgBuyButton>Buy</PkgBuyButton>
         </PackageCard>
       </PackagesCardContainer>
