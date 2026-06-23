@@ -2,10 +2,15 @@ import { styled } from "@mui/material";
 
 export const FooterSection = styled("footer")(({ theme }) => ({
   display: "flex",
+  flexDirection: "column",
+}));
+
+export const FooterTextContents = styled("footer")(({ theme }) => ({
+  display: "flex",
   flexDirection: "row",
   alignItems: "center",
   justifyContent: "space-between",
-  borderTop: `1px solid ${theme.colors.border}`,
+  // borderTop: `1px solid ${theme.colors.border}`,
   padding: "10px 20px 20px 20px", //top right bottom left
   fontSize: "13px",
 
@@ -37,5 +42,17 @@ export const FooterSection = styled("footer")(({ theme }) => ({
     img: {
       filter: theme.colors.textPrimary === "#FFFFFF" ? "invert(100%)" : "none",
     },
+  },
+}));
+
+export const FooterBgImage = styled("div")(({ theme }) => ({
+  display: "flex",
+  width: "100%",
+  height: "100px",
+
+  img: {
+    width: "100%",
+    height: "100%",
+    objectFit: "cover",
   },
 }));
