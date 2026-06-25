@@ -29,6 +29,7 @@ export const OfferBannerSection = styled("div")(({ theme }) => ({
   flexDirection: "column",
   color: theme.colors.textSecondary,
   width: "100%",
+  fontFamily: theme.customTypography.fontFamilyBase,
 }));
 
 export const OfferBannerContainer = styled("div")(({ theme }) => ({
@@ -106,6 +107,7 @@ export const CantReconnectContainer = styled("div")(({ theme }) => ({
   fontSize: "11px",
   marginTop: "20px",
   backgroundColor: `${theme.colors.border2}10`, // add 99 for 60% opacity
+  fontFamily: theme.customTypography.fontFamilyParagraph,
 
   ul: {
     margin: 0,
