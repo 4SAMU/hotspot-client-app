@@ -22,7 +22,10 @@ const packages: Package[] = [
   {
     title: "3 Days",
     price: "KES 120",
-    features: ["Enjoy 3 days of unlimited access"],
+    features: [
+      "Enjoy 3 days of unlimited access",
+      "Connect Upto 2 devices simultaneously",
+    ],
     ribbon: {
       text: "Unlimited",
       bgColor: "#ece90f",
@@ -32,7 +35,10 @@ const packages: Package[] = [
   {
     title: "1 Week",
     price: "KES 199",
-    features: ["Enjoy 7 days of unlimited access"],
+    features: [
+      "Enjoy 7 days of unlimited access",
+      "Connect Upto 2 devices simultaneously",
+    ],
     ribbon: {
       text: "Best Deal",
       bgColor: "#e0a912",
@@ -48,7 +54,7 @@ const packages: Package[] = [
     ],
     ribbon: {
       text: "Premium",
-      bgColor: "#0fec1a",
+      bgColor: "#300ef5",
       textColor: "#fff",
     },
   },

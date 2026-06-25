@@ -149,8 +149,8 @@ export const MoreDealsPackageCard = styled("div", {
       background: color,
       color: ribbonTextColor || "#fff",
 
-      borderRadius: "0 0 120px 120px",
-      boxShadow: `0 6px 15px ${alpha(color, 0.45)}`,
+      borderRadius: "0 0 40px 40px",
+      // boxShadow: `0 6px 15px ${alpha(color, 0.45)}`,
     },
 
     ".header::after": {
@@ -168,20 +168,20 @@ export const MoreDealsPackageCard = styled("div", {
 
     ".header h3": {
       margin: 0,
-      fontSize: "15px",
+      fontSize: "14px",
       fontWeight: 700,
       fontFamily: theme.customTypography.fontFamilyTitle,
     },
 
     ".price": {
       marginTop: 14,
-      fontSize: "14px",
-      fontWeight: 900,
+      fontSize: "15px",
+      fontWeight: 1000,
       fontFamily: theme.customTypography.fontFamilyTitle,
     },
 
     ".header span": {
-      fontSize: 13,
+      fontSize: 12,
       opacity: 0.9,
       marginTop: 6,
     },
@@ -193,9 +193,6 @@ export const MoreDealsPackageCard = styled("div", {
       flex: 1,
       padding: "10px",
       color: theme.colors.textPrimary,
-
-      // body gets a light shade of ribbon color
-      background: alpha(color, 0.06),
     },
 
     ul: {
