@@ -10,7 +10,7 @@ export const FooterTextContents = styled("footer")(({ theme }) => ({
   flexDirection: "row",
   alignItems: "center",
   justifyContent: "space-between",
-  // borderTop: `1px solid ${theme.colors.border}`,
+  // borderTop: `1px solid ${theme.colors.border1}`,
   padding: "10px 20px 20px 20px", //top right bottom left
   fontSize: "13px",
 
@@ -22,9 +22,9 @@ export const FooterTextContents = styled("footer")(({ theme }) => ({
     display: "flex",
     flexDirection: "column",
     justifyContent: "center",
-    color: theme.colors.textPrimary,
+    color: theme.colors.text1,
     ".powered-by": {
-      color: theme.colors.textPrimary,
+      color: theme.colors.text1,
       fontSize: "11px",
     },
   },
@@ -40,7 +40,7 @@ export const FooterTextContents = styled("footer")(({ theme }) => ({
     color: theme.colors.primary,
     cursor: "pointer",
     img: {
-      filter: theme.colors.textPrimary === "#FFFFFF" ? "invert(100%)" : "none",
+      filter: theme.colors.text1 === "#FFFFFF" ? "invert(100%)" : "none",
     },
   },
 }));

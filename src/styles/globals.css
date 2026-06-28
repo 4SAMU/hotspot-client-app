@@ -23,7 +23,7 @@ body {
 body {
   color: var(--foreground);
   background: var(--background);
-  font-family: "Open Sans", sans-serif;
+  font-family: "Open Sans", "DM Sans", sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }

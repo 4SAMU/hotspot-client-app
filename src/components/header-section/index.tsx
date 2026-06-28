@@ -1,5 +1,11 @@
 import { useRouterIdentity } from "@/hooks/useRouterIdentity";
-import { HeaderTitle } from "./headerStyles";
+import {
+  HeaderContainer,
+  HeaderTitle,
+  TagsButton,
+  TagsContainer,
+} from "./headerStyles";
+import { Box } from "@mui/material";
 
 const HeaderSection = () => {
   const { routerIdentity, loading } = useRouterIdentity();
@@ -9,15 +15,23 @@ const HeaderSection = () => {
   }
 
   return (
-    <HeaderTitle>
-      <h1
-        dangerouslySetInnerHTML={{
-          __html: routerIdentity?.name ?? "Luxenn <span>HOTSPOT</span>",
-        }}
-      />
+    <>
+      <HeaderContainer>
+        <HeaderTitle>
+          <h1
+            dangerouslySetInnerHTML={{
+              __html: routerIdentity?.name ?? "Luxenn <span>HOTSPOT</span>",
+            }}
+          />
 
-      <div className="tagline">Fast · Instant · Reliable</div>
-    </HeaderTitle>
+          <div className="tagline">Fast · Instant · Reliable</div>
+        </HeaderTitle>
+      </HeaderContainer>
+      <TagsContainer>
+        <TagsButton>How it Works</TagsButton>
+        <TagsButton>My Account</TagsButton>
+      </TagsContainer>
+    </>
   );
 };
 

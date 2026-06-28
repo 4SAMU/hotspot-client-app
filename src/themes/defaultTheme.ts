@@ -1,76 +1,41 @@
-import { ThemeConfig } from "@/themes";
+import { ThemeConfig } from ".";
 
 export const defaultTheme: ThemeConfig = {
   colors: {
-    primary: "#00C96E",
-    secondary: "#0D1117",
+    background: "#0D1117",
+
+    primary: "#00c96e",
+    secondary: "#000",
+
+    text1: "#E6EDF3",
+    text2: "#000",
 
     success: "#22C55E",
     warning: "#F59E0B",
     error: "#EF4444",
 
-    background: "#0D1117",
+    accent1: "#00c96e",
+    accent2: "#0bd7f1",
 
-    textPrimary: "#FFFFFF",
-    textSecondary: "#8B949E",
-
-    border: "#21262D",
-    border2: "#0bd7f1",
-    divider: "#30363D",
-  },
-
-  customTypography: {
-    fontFamilyBase: '"DM Sans", sans-serif',
-    fontFamilyTitle: '"JetBrains Mono", monospace',
-    fontFamilyParagraph: '"Open Sans", sans-serif',
-
-    headingWeight: 800,
-    bodyWeight: 400,
-
-    h1Size: 32,
-    h2Size: 24,
-
-    bodySize: 14,
-    captionSize: 12,
-  },
-
-  surfaces: {
-    card: "#161B22",
-    section: "#0D1117",
-    elevated: "#1F2937",
+    border1: "#E5E7EB",
+    border2: "#0D1117",
   },
 
   buttons: {
-    borderRadius: 12,
+    primary: {
+      background: "#00c96e",
+      text: "#FFFFFF",
+    },
 
-    primaryBackground: "#00C96E",
-    primaryText: "#FFFFFF",
-
-    secondaryBackground: "#161B22",
-    secondaryText: "#FFFFFF",
-
-    height: 44,
+    secondary: {
+      background: "#FFFFFF",
+      text: "#00c96e",
+    },
   },
-
-  packageCard: {
-    borderRadius: 16,
-
-    defaultBorderColor: "#21262D",
-
-    defaultBackground: "#161B22",
-
-    glowOpacity: 0.15,
-
-    ribbonTextColor: "#FFFFFF",
-  },
-
-  banner: {
-    borderRadius: 20,
-
-    overlayOpacity: 0.6,
-
-    buttonRadius: 12,
-
-    contentMaxWidth: 500,
+  packageCardColors: {
+    ribbon: {
+      background: "#F59E0B",
+      text: "#000000",
+    },
   },
 };

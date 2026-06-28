@@ -1,16 +1,50 @@
-import { styled } from "@mui/material";
+import { Button, styled } from "@mui/material";
 
-export const HeaderTitle = styled("header")(({ theme }) => ({
+export const HeaderContainer = styled("header")(({}) => ({
+  display: "flex",
+  padding: "20px",
+}));
+
+export const TagsContainer = styled("div")(({ theme }) => ({
+  display: "flex",
+  flexDirection: "row",
+  flexWrap: "wrap",
+  margin: "10px 10px 0 20px",
+  gap: "10px",
+  borderBottom: `1px solid ${theme.colors.accent2}50`,
+  padding: "0 0 10px 0",
+}));
+
+export const TagsButton = styled(Button)(({ theme }) => ({
+  display: "flex",
+  textTransform: "none",
+  background: `${theme.colors.background}`,
+  border: `1px solid ${theme.colors.accent2}`,
+  color: theme.colors.accent2,
+  fontSize: "12px",
+  fontFamily: '"JetBrains Mono", monospace',
+  transition: "0.3s all ease-in-out",
+
+  ":active": {
+    background: theme.colors.accent2,
+  },
+  ":hover": {
+    background: theme.colors.accent2,
+    border: "1px solid transparent",
+    color: theme.colors.text1,
+  },
+}));
+
+export const HeaderTitle = styled("div")(({ theme }) => ({
   display: "flex",
   flexDirection: "column",
-  alignItems: "center",
-  justifyContent: "center",
-  margin: "40px 0 20px 0", //top right bottom left
+  // alignItems: "center",
+  // justifyContent: "center",
 
   h1: {
     fontSize: "1.5rem",
     fontWeight: "bold",
-    color: theme.colors.textPrimary,
+    color: theme.colors.text1,
   },
 
   span: {
@@ -18,7 +52,7 @@ export const HeaderTitle = styled("header")(({ theme }) => ({
   },
   ".tagline": {
     fontSize: "10px",
-    color: theme.colors.textPrimary,
+    color: theme.colors.text1,
     textTransform: "uppercase",
     marginTop: "8px",
   },
@@ -27,9 +61,8 @@ export const HeaderTitle = styled("header")(({ theme }) => ({
 export const OfferBannerSection = styled("div")(({ theme }) => ({
   display: "flex",
   flexDirection: "column",
-  color: theme.colors.textSecondary,
+  color: theme.colors.text1,
   width: "100%",
-  fontFamily: theme.customTypography.fontFamilyBase,
 }));
 
 export const OfferBannerContainer = styled("div")(({ theme }) => ({
@@ -60,7 +93,7 @@ export const OfferBannerContainer = styled("div")(({ theme }) => ({
   ".button-controller": {
     width: "4px",
     height: "8px",
-    backgroundColor: theme.colors.textSecondary,
+    backgroundColor: theme.colors.text1,
     opacity: 0.4,
     cursor: "pointer",
     transition: "all 0.25s ease",
@@ -80,7 +113,7 @@ export const OfferBannerCard = styled("div")(({ theme }) => ({
   display: "flex",
   flexDirection: "row",
   backgroundColor: `${theme.colors.primary}50`,
-  color: theme.colors.textPrimary,
+  color: theme.colors.text1,
   borderRadius: "8px",
   minHeight: "120px",
 
@@ -99,15 +132,14 @@ export const CantReconnectContainer = styled("div")(({ theme }) => ({
   display: "flex",
   flexDirection: "column",
   justifyContent: "center",
-  color: theme.colors.textPrimary,
-  border: `1px solid ${theme.colors.border2}`,
+  color: theme.colors.text1,
+  border: `1px solid ${theme.colors.accent2}50`,
   width: "100%",
   borderRadius: "10px",
   padding: "10px",
   fontSize: "11px",
   marginTop: "20px",
-  backgroundColor: `${theme.colors.border2}10`, // add 99 for 60% opacity
-  fontFamily: theme.customTypography.fontFamilyParagraph,
+  background: `${theme.colors.accent2}20`, // add 99 for 60% opacity
 
   ul: {
     margin: 0,
@@ -120,13 +152,13 @@ export const CantReconnectContainer = styled("div")(({ theme }) => ({
   },
 
   ".my-account-link": {
-    color: theme.colors.border2,
+    color: theme.colors.accent2,
     textDecoration: "underline dashed",
     fontWeight: "bold",
     fontSize: "12px",
   },
 
   ".support-link": {
-    color: theme.colors.textPrimary,
+    color: theme.colors.text1,
   },
 }));

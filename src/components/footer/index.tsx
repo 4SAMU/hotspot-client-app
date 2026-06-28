@@ -9,9 +9,9 @@ const Footer = () => {
   const { routerIdentity } = useRouterIdentity();
   return (
     <FooterSection>
-      <FooterBgImage>
+      {/* <FooterBgImage>
         <img src={"/assets/footerBgImage.png"} alt="" />
-      </FooterBgImage>
+      </FooterBgImage> */}
       <FooterTextContents>
         <div className="left-items">
           <p

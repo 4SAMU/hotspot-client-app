@@ -27,7 +27,7 @@ const packages: Package[] = [
       "Connect Upto 2 devices simultaneously",
     ],
     ribbon: {
-      text: "Unlimited",
+      text: "Basic",
       bgColor: "#ece90f",
       textColor: "#000",
     },

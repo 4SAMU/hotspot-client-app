@@ -15,11 +15,12 @@ export const routerIdentities: Record<string, RouterIdentity> = {
       colors: {
         ...defaultTheme.colors,
 
-        primary: "#FF6B00",
-
-        success: "#FF6B00",
+        primary: "#FF531E",
+        success: "#FF531E",
         background: "#FFF7F0",
-        textPrimary: "#0D1117",
+        text1: "#000",
+        text2: "#f1e8e8",
+        accent2: "#16803c",
       },
     },
   },
@@ -41,7 +42,9 @@ export const routerIdentities: Record<string, RouterIdentity> = {
 
         success: "#46eb25",
         background: "#0D1117",
-        textPrimary: "#FFFFFF",
+        text1: "#fff",
+        text2: "#050505",
+        accent2: "#14ecc8",
       },
     },
   },
@@ -58,6 +61,12 @@ export const routerIdentities: Record<string, RouterIdentity> = {
 
       colors: {
         ...defaultTheme.colors,
+        primary: "#00c96e",
+        background: "#0D1117",
+        text1: "#E6EDF3",
+        text2: "#030303",
+        accent2: "#0bd7f1",
+        border1: "#333435",
       },
     },
   },

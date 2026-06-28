@@ -93,7 +93,7 @@ const PackagesSection = () => {
 
             <span className="price">{pkg.price}</span>
 
-            <PkgBuyButton>Buy</PkgBuyButton>
+            <PkgBuyButton className="pkg_button">Buy</PkgBuyButton>
           </PackageCard>
         ))}
       </PackagesCardContainer>

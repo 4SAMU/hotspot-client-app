@@ -1,86 +1,44 @@
 export interface ThemeConfig {
   colors: ThemeColors;
 
-  customTypography: ThemeCustomTypography;
-
-  surfaces: ThemeSurfaces;
-
   buttons: ThemeButtons;
 
-  packageCard: ThemePackageCard;
-
-  banner: ThemeBanner;
+  packageCardColors: ThemePackageCardColors;
 }
 
 export interface ThemeColors {
+  background: string;
+
   primary: string;
   secondary: string;
+
+  text1: string;
+  text2: string;
 
   success: string;
   warning: string;
   error: string;
 
-  background: string;
+  accent1: string;
+  accent2: string;
 
-  textPrimary: string;
-  textSecondary: string;
-
-  border: string;
+  border1: string;
   border2: string;
-  divider: string;
-}
-
-export interface ThemeCustomTypography {
-  fontFamilyBase: string;
-  fontFamilyTitle: string;
-  fontFamilyParagraph: string;
-
-  headingWeight: number;
-  bodyWeight: number;
-
-  h1Size: number;
-  h2Size: number;
-
-  bodySize: number;
-  captionSize: number;
-}
-
-export interface ThemeSurfaces {
-  card: string;
-  section: string;
-  elevated: string;
 }
 
 export interface ThemeButtons {
-  borderRadius: number;
-
-  primaryBackground: string;
-  primaryText: string;
-
-  secondaryBackground: string;
-  secondaryText: string;
-
-  height: number;
+  primary: ButtonColors;
+  secondary: ButtonColors;
 }
 
-export interface ThemePackageCard {
-  borderRadius: number;
-
-  defaultBorderColor: string;
-
-  defaultBackground: string;
-
-  glowOpacity: number;
-
-  ribbonTextColor: string;
+export interface ButtonColors {
+  background: string;
+  text: string;
 }
 
-export interface ThemeBanner {
-  borderRadius: number;
-
-  overlayOpacity: number;
-
-  buttonRadius: number;
-
-  contentMaxWidth: number;
+export interface ThemePackageCardColors {
+  ribbon: {
+    background: string;
+    text: string;
+  };
 }
