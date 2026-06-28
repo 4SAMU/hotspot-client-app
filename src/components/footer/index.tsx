@@ -1,17 +1,11 @@
-import {
-  FooterBgImage,
-  FooterSection,
-  FooterTextContents,
-} from "./footerStyles";
+import { FooterSection, FooterTextContents } from "./footerStyles";
 import { useRouterIdentity } from "@/hooks/useRouterIdentity";
+import PermPhoneMsgOutlinedIcon from "@mui/icons-material/PermPhoneMsgOutlined";
 
 const Footer = () => {
   const { routerIdentity } = useRouterIdentity();
   return (
     <FooterSection>
-      {/* <FooterBgImage>
-        <img src={"/assets/footerBgImage.png"} alt="" />
-      </FooterBgImage> */}
       <FooterTextContents>
         <div className="left-items">
           <p
@@ -25,12 +19,7 @@ const Footer = () => {
           </p>
         </div>
         <div className="right-items">
-          <img
-            src="/icons/phone.png"
-            alt="Support Icon"
-            width={20}
-            height={20}
-          />
+          <PermPhoneMsgOutlinedIcon />
           &nbsp;
           <p>{routerIdentity?.supportNumber}</p>
         </div>

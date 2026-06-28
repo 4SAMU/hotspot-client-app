@@ -21,9 +21,10 @@ export const TagsButton = styled(Button)(({ theme }) => ({
   background: `${theme.colors.background}`,
   border: `1px solid ${theme.colors.accent2}`,
   color: theme.colors.accent2,
-  fontSize: "12px",
+  fontSize: "10.5px",
   fontFamily: '"JetBrains Mono", monospace',
   transition: "0.3s all ease-in-out",
+  gap: "5px",
 
   ":active": {
     background: theme.colors.accent2,
@@ -32,6 +33,9 @@ export const TagsButton = styled(Button)(({ theme }) => ({
     background: theme.colors.accent2,
     border: "1px solid transparent",
     color: theme.colors.text1,
+  },
+  "& svg": {
+    fontSize: 22,
   },
 }));
 

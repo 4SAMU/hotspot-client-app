@@ -1,6 +1,6 @@
 import { styled } from "@mui/material";
 
-export const FooterSection = styled("footer")(({ theme }) => ({
+export const FooterSection = styled("footer")(({}) => ({
   display: "flex",
   flexDirection: "column",
 }));
@@ -10,8 +10,8 @@ export const FooterTextContents = styled("footer")(({ theme }) => ({
   flexDirection: "row",
   alignItems: "center",
   justifyContent: "space-between",
-  // borderTop: `1px solid ${theme.colors.border1}`,
-  padding: "10px 20px 20px 20px", //top right bottom left
+  borderTop: `1px solid ${theme.colors.primary}99`,
+  padding: "20px", //top right bottom left
   fontSize: "13px",
 
   span: {
@@ -39,20 +39,9 @@ export const FooterTextContents = styled("footer")(({ theme }) => ({
     borderRadius: "8px",
     color: theme.colors.primary,
     cursor: "pointer",
-    img: {
-      filter: theme.colors.text1 === "#FFFFFF" ? "invert(100%)" : "none",
+
+    "& svg": {
+      fontSize: 22,
     },
-  },
-}));
-
-export const FooterBgImage = styled("div")(({ theme }) => ({
-  display: "flex",
-  width: "100%",
-  height: "100px",
-
-  img: {
-    width: "100%",
-    height: "100%",
-    objectFit: "cover",
   },
 }));

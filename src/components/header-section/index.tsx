@@ -6,6 +6,9 @@ import {
   TagsContainer,
 } from "./headerStyles";
 import { Box } from "@mui/material";
+import TipsAndUpdatesIcon from "@mui/icons-material/TipsAndUpdates";
+import TipsAndUpdatesOutlinedIcon from "@mui/icons-material/TipsAndUpdatesOutlined";
+import PersonIcon from "@mui/icons-material/Person";
 
 const HeaderSection = () => {
   const { routerIdentity, loading } = useRouterIdentity();
@@ -28,8 +31,14 @@ const HeaderSection = () => {
         </HeaderTitle>
       </HeaderContainer>
       <TagsContainer>
-        <TagsButton>How it Works</TagsButton>
-        <TagsButton>My Account</TagsButton>
+        <TagsButton>
+          <TipsAndUpdatesOutlinedIcon />
+          How it Works
+        </TagsButton>
+        <TagsButton>
+          <PersonIcon />
+          My Account
+        </TagsButton>
       </TagsContainer>
     </>
   );
