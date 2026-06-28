@@ -25,6 +25,9 @@ export const PackagesCardContainer = styled("div")({
   gap: "10px",
   marginTop: "20px",
   width: "100%",
+  "@media (max-width: 355px)": {
+    gap: "8px",
+  },
 });
 
 export const PackageCard = styled("div", {
@@ -92,6 +95,19 @@ export const PackageCard = styled("div", {
     left: "0",
     borderRadius: "0 0 8px 8px",
   },
+
+  "@media (max-width: 355px)": {
+    h3: {
+      fontSize: "12px",
+    },
+    li: {
+      fontSize: "8px",
+    },
+    ul: {
+      margin: "6px 0 0 0",
+      paddingLeft: "2px",
+    },
+  },
 }));
 
 export const PkgRibbon = styled("div", {
@@ -109,6 +125,10 @@ export const PkgRibbon = styled("div", {
   color: ribbonTextColor,
   fontSize: "13px",
   fontWeight: 600,
+  "@media (max-width: 355px)": {
+    fontSize: "10px",
+    padding: "2px 5px",
+  },
 }));
 
 export const PkgBuyButton = styled(Button)(({ theme }) => ({
@@ -218,12 +238,27 @@ export const MoreDealsPackageCard = styled("div", {
     },
 
     ".pkg_button": {
-      width: "80%",
+      width: "100%",
       background: color,
       color: ribbonTextColor || "#fff",
 
       "&:hover": {
         background: alpha(color, 0.9),
+      },
+    },
+
+    "@media (max-width: 375px)": {
+      li: {
+        fontSize: "8px",
+      },
+      ".header h3": {
+        fontSize: "11px",
+      },
+      ".price": {
+        fontSize: "12px",
+      },
+      ".pkg_button": {
+        fontSize: "11px",
       },
     },
   };

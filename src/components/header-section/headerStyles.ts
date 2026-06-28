@@ -1,8 +1,58 @@
 import { Button, styled } from "@mui/material";
 
-export const HeaderContainer = styled("header")(({}) => ({
+export const HeaderContainer = styled("header")(({ theme }) => ({
   display: "flex",
   padding: "20px",
+  justifyContent: "space-between",
+
+  ".my-account-icon": {
+    position: "relative",
+    display: "flex",
+    alignItems: "center",
+    justifyContent: "center",
+    width: "25px",
+    height: "25px",
+    border: `1px solid ${theme.colors.text1}`,
+    borderRadius: "50%",
+    cursor: "pointer",
+    transition: "0.3s all ease-in-out",
+
+    "& svg": {
+      fontSize: "20px",
+      color: theme.colors.text1,
+      transition: "0.3s all ease-in-out",
+    },
+
+    ":hover": {
+      background: `${theme.colors.primary}10`,
+      border: `1px solid ${theme.colors.primary}`,
+
+      "& svg": {
+        color: theme.colors.primary,
+      },
+    },
+    ":active": {
+      background: `${theme.colors.primary}10`,
+      border: `1px solid ${theme.colors.primary}`,
+
+      "& svg": {
+        color: theme.colors.primary,
+      },
+    },
+  },
+  ".icon-badge": {
+    position: "absolute",
+    width: "6px",
+    height: "6px",
+    top: "-4px",
+    right: "-4px",
+    borderRadius: "50%",
+    background: "red",
+  },
+
+  "@media (max-width: 370px)": {
+    padding: "15px 10px",
+  },
 }));
 
 export const TagsContainer = styled("div")(({ theme }) => ({
@@ -13,6 +63,9 @@ export const TagsContainer = styled("div")(({ theme }) => ({
   gap: "10px",
   borderBottom: `1px solid ${theme.colors.accent2}50`,
   padding: "0 0 10px 0",
+  "@media (max-width: 370px)": {
+    margin: "10px",
+  },
 }));
 
 export const TagsButton = styled(Button)(({ theme }) => ({
@@ -42,8 +95,6 @@ export const TagsButton = styled(Button)(({ theme }) => ({
 export const HeaderTitle = styled("div")(({ theme }) => ({
   display: "flex",
   flexDirection: "column",
-  // alignItems: "center",
-  // justifyContent: "center",
 
   h1: {
     fontSize: "1.5rem",
@@ -124,12 +175,8 @@ export const OfferBannerCard = styled("div")(({ theme }) => ({
   width: "100%",
   maxWidth: "100%",
 
-  padding: "20px",
+  padding: "16px",
   boxSizing: "border-box",
-
-  "@media (max-width: 600px)": {
-    padding: "16px",
-  },
 }));
 
 export const CantReconnectContainer = styled("div")(({ theme }) => ({
@@ -164,5 +211,11 @@ export const CantReconnectContainer = styled("div")(({ theme }) => ({
 
   ".support-link": {
     color: theme.colors.text1,
+  },
+
+  "@media (max-width: 355px)": {
+    ul: {
+      paddingLeft: "15px",
+    },
   },
 }));

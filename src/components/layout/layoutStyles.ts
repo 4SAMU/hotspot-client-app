@@ -17,5 +17,9 @@ export const MainWrapper = styled(Box)(({ theme }) => ({
     minHeight: "calc(100vh - 180px)", // Adjust for header and footer height
     width: "100%",
     padding: "10px 20px 40px 20px",
+
+    "@media (max-width: 355px)": {
+      padding: "10px 6px 40px 6px",
+    },
   },
 }));

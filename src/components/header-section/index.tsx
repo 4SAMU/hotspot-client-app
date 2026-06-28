@@ -5,10 +5,9 @@ import {
   TagsButton,
   TagsContainer,
 } from "./headerStyles";
-import { Box } from "@mui/material";
-import TipsAndUpdatesIcon from "@mui/icons-material/TipsAndUpdates";
 import TipsAndUpdatesOutlinedIcon from "@mui/icons-material/TipsAndUpdatesOutlined";
 import PersonIcon from "@mui/icons-material/Person";
+import { Icon } from "@mui/material";
 
 const HeaderSection = () => {
   const { routerIdentity, loading } = useRouterIdentity();
@@ -29,6 +28,10 @@ const HeaderSection = () => {
 
           <div className="tagline">Fast · Instant · Reliable</div>
         </HeaderTitle>
+        <div className="my-account-icon">
+          <PersonIcon />
+          <span className="icon-badge" />
+        </div>
       </HeaderContainer>
       <TagsContainer>
         <TagsButton>

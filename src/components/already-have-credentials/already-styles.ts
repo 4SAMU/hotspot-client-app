@@ -33,6 +33,10 @@ export const CredentialsSection = styled("section")(({ theme }) => ({
     color: theme.colors.text1,
     marginTop: "5px",
   },
+
+  "@media (max-width: 370px)": {
+    padding: "15px 10px",
+  },
 }));
 
 export const ConnectButton = styled(Button)(({ theme }) => ({
