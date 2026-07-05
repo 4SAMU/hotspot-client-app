@@ -68,30 +68,6 @@ export const TagsContainer = styled("div")(({ theme }) => ({
   },
 }));
 
-export const TagsButton = styled(Button)(({ theme }) => ({
-  display: "flex",
-  textTransform: "none",
-  background: `${theme.colors.background}`,
-  border: `1px solid ${theme.colors.accent2}`,
-  color: theme.colors.accent2,
-  fontSize: "10.5px",
-  fontFamily: '"JetBrains Mono", monospace',
-  transition: "0.3s all ease-in-out",
-  gap: "5px",
-
-  ":active": {
-    background: theme.colors.accent2,
-  },
-  ":hover": {
-    background: theme.colors.accent2,
-    border: "1px solid transparent",
-    color: theme.colors.text1,
-  },
-  "& svg": {
-    fontSize: 22,
-  },
-}));
-
 export const HeaderTitle = styled("div")(({ theme }) => ({
   display: "flex",
   flexDirection: "column",
@@ -118,6 +94,7 @@ export const OfferBannerSection = styled("div")(({ theme }) => ({
   flexDirection: "column",
   color: theme.colors.text1,
   width: "100%",
+  marginTop: "15px",
 }));
 
 export const OfferBannerContainer = styled("div")(({ theme }) => ({
@@ -170,13 +147,47 @@ export const OfferBannerCard = styled("div")(({ theme }) => ({
   backgroundColor: `${theme.colors.primary}50`,
   color: theme.colors.text1,
   borderRadius: "8px",
-  minHeight: "120px",
-
+  height: "120px",
   width: "100%",
   maxWidth: "100%",
 
-  padding: "16px",
   boxSizing: "border-box",
+
+  ".left-side-items": {
+    display: "flex",
+    flexDirection: "column",
+    alignItems: "flex-start",
+    width: "60%",
+    padding: "16px",
+
+    ".title": {
+      fontSize: "15px",
+      fontWeight: "500px",
+      fontFamily: "JetBrains Mono, monospace",
+    },
+    ".description": {
+      marginTop: "4px",
+      fontSize: "12px",
+      fontWeight: "300px",
+      fontFamily: "Dm Sans, sans-serif",
+    },
+  },
+  ".image-section": {
+    width: "40%",
+    height: "120px",
+    overflow: "hidden",
+    borderRadius: "55px 8px 8px 55px",
+    borderLeft: `2px solid ${theme.colors.primary}80`,
+
+    img: {
+      display: "block",
+      width: "100%",
+      height: "100%",
+      objectFit: "cover",
+      objectPosition: "center",
+      borderRadius: "inherit",
+    },
+  },
 }));
 
 export const CantReconnectContainer = styled("div")(({ theme }) => ({

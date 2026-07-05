@@ -1,10 +1,8 @@
+import { FilledButton } from "@/styles/common-styles";
 import {
   MoreDealsPackageCard,
-  PackageCard,
   PackagesCardContainer,
   PackagesSectionContainer,
-  PkgBuyButton,
-  PkgRibbon,
 } from "./packagesStyles";
 
 export interface Package {
@@ -85,7 +83,7 @@ const MoreDealsPackagesSection = () => {
                 ))}
               </ul>
 
-              <PkgBuyButton className="pkg_button">Buy Now</PkgBuyButton>
+              <FilledButton className="pkg_button">Buy Now</FilledButton>
             </div>
           </MoreDealsPackageCard>
         ))}

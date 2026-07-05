@@ -1,10 +1,20 @@
+import { useState } from "react";
+import { Box, ToggleButton, ToggleButtonGroup } from "@mui/material";
+
 import {
   PackageCard,
   PackagesCardContainer,
   PackagesSectionContainer,
-  PkgBuyButton,
   PkgRibbon,
 } from "./packagesStyles";
+
+import { FilledButton, OutlinedButton } from "@/styles/common-styles";
+import { useTheme } from "@/hooks/useTheme";
+
+// Icons
+import ViewListIcon from "@mui/icons-material/ViewList";
+import ViewGridIcon from "@mui/icons-material/Apps";
+import KeyboardArrowRightIcon from "@mui/icons-material/KeyboardArrowRight";
 
 export interface Package {
   title: string;
@@ -64,11 +74,49 @@ const packages: Package[] = [
 ];
 
 const PackagesSection = () => {
+  const { theme } = useTheme();
+
+  const [view, setView] = useState<"grid" | "list">("grid");
+
   return (
     <PackagesSectionContainer>
-      <header>Our Deals 🔥</header>
+      <Box className="top-section">
+        <header>Our Deals 🔥</header>
 
-      <PackagesCardContainer>
+        <ToggleButtonGroup
+          exclusive
+          value={view}
+          onChange={(_, value) => value && setView(value)}
+          size="small"
+          sx={{
+            "& .MuiToggleButton-root": {
+              border: `1px solid ${theme.colors.text1}`,
+              color: theme.colors.text1,
+              px: 1.3,
+              py: 0.5,
+            },
+
+            "& .Mui-selected": {
+              background: theme.colors.primary,
+              color: "#fff",
+            },
+
+            "& .Mui-selected:hover": {
+              background: theme.colors.primary,
+            },
+          }}
+        >
+          <ToggleButton value="grid">
+            <ViewGridIcon />
+          </ToggleButton>
+
+          <ToggleButton value="list">
+            <ViewListIcon />
+          </ToggleButton>
+        </ToggleButtonGroup>
+      </Box>
+
+      <PackagesCardContainer className={view}>
         {packages.map((pkg) => (
           <PackageCard
             key={pkg.title}
@@ -83,6 +131,7 @@ const PackagesSection = () => {
                 {pkg.ribbon.text}
               </PkgRibbon>
             )}
+
             <h3>{pkg.title}</h3>
 
             <ul>
@@ -93,10 +142,29 @@ const PackagesSection = () => {
 
             <span className="price">{pkg.price}</span>
 
-            <PkgBuyButton className="pkg_button">Buy</PkgBuyButton>
+            <FilledButton className="pkg_button">Buy</FilledButton>
           </PackageCard>
         ))}
       </PackagesCardContainer>
+
+      <Box
+        sx={{
+          display: "flex",
+          justifyContent: "center",
+          mt: 2,
+        }}
+      >
+        <OutlinedButton
+          sx={{
+            border: `1px solid ${theme.colors.primary}`,
+            color: theme.colors.primary,
+            height: "36px",
+          }}
+        >
+          Explore More
+          <KeyboardArrowRightIcon />
+        </OutlinedButton>
+      </Box>
     </PackagesSectionContainer>
   );
 };

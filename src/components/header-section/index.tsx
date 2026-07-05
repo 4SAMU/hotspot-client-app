@@ -1,13 +1,8 @@
 import { useRouterIdentity } from "@/hooks/useRouterIdentity";
-import {
-  HeaderContainer,
-  HeaderTitle,
-  TagsButton,
-  TagsContainer,
-} from "./headerStyles";
+import { HeaderContainer, HeaderTitle, TagsContainer } from "./headerStyles";
 import TipsAndUpdatesOutlinedIcon from "@mui/icons-material/TipsAndUpdatesOutlined";
 import PersonIcon from "@mui/icons-material/Person";
-import { Icon } from "@mui/material";
+import { OutlinedButton } from "@/styles/common-styles";
 
 const HeaderSection = () => {
   const { routerIdentity, loading } = useRouterIdentity();
@@ -34,14 +29,14 @@ const HeaderSection = () => {
         </div>
       </HeaderContainer>
       <TagsContainer>
-        <TagsButton>
+        <OutlinedButton>
           <TipsAndUpdatesOutlinedIcon />
           How it Works
-        </TagsButton>
-        <TagsButton>
+        </OutlinedButton>
+        <OutlinedButton>
           <PersonIcon />
           My Account
-        </TagsButton>
+        </OutlinedButton>
       </TagsContainer>
     </>
   );

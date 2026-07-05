@@ -1,28 +1,81 @@
-import { useRef, useState } from "react";
+import { useMemo, useRef, useState } from "react";
 import AliceCarousel from "react-alice-carousel";
+import { Box } from "@mui/material";
 
 import {
   OfferBannerCard,
   OfferBannerContainer,
   OfferBannerSection,
 } from "./headerStyles";
+import { FilledButton } from "@/styles/common-styles";
 
-const items = [
-  <OfferBannerCard key="1">Offer 1</OfferBannerCard>,
-  <OfferBannerCard key="2">Offer 2</OfferBannerCard>,
-  <OfferBannerCard key="3">Offer 3</OfferBannerCard>,
+const offers = [
+  {
+    id: 1,
+    title: "3 Days Unlimited",
+    description: "Get 3 Days Unlimited connection at only Kes.120",
+    image: "https://picsum.photos/seed/moon/600/400",
+  },
+  {
+    id: 2,
+    title: "7 Days Unlimited",
+    description: "Get 7 Days Unlimited connection at only Kes.250",
+    image: "https://picsum.photos/seed/hotel/600/400",
+  },
+  {
+    id: 3,
+    title: "30 Days Unlimited",
+    description: "Get 30 Days Unlimited connection at only Kes.800",
+    image: "https://picsum.photos/seed/car/600/400",
+  },
 ];
+
+interface OfferCardProps {
+  title: string;
+  description: string;
+  image: string;
+}
+
+const OfferCard = ({ title, description, image }: OfferCardProps) => {
+  return (
+    <OfferBannerCard>
+      <Box className="left-side-items">
+        <h3 className="title">{title}</h3>
+
+        <p className="description">{description}</p>
+
+        <FilledButton sx={{ mt: "6px" }}>Buy Now</FilledButton>
+      </Box>
+
+      <Box className="image-section">
+        <img src={image} alt={title} />
+      </Box>
+    </OfferBannerCard>
+  );
+};
 
 const OfferBanner = () => {
   const carouselRef = useRef<AliceCarousel | null>(null);
+
   const [activeIndex, setActiveIndex] = useState(0);
 
-  // Handle slide change event and update the active index
+  const items = useMemo(
+    () =>
+      offers.map((offer) => (
+        <OfferCard
+          key={offer.id}
+          title={offer.title}
+          description={offer.description}
+          image={offer.image}
+        />
+      )),
+    [],
+  );
+
   const handleSlideChanged = (e: any) => {
-    setActiveIndex(e.item % items.length);
+    setActiveIndex(e.item % offers.length);
   };
 
-  // Function to go to a specific slide when a dot is clicked
   const goToSlide = (index: number) => {
     carouselRef.current?.slideTo(index);
     setActiveIndex(index);
@@ -42,16 +95,15 @@ const OfferBanner = () => {
             1024: { items: 1 },
           }}
           autoPlay
-          autoPlayInterval={3000}
+          autoPlayInterval={5000}
           infinite
           disableButtonsControls
           disableDotsControls
           onSlideChanged={handleSlideChanged}
         />
 
-        {/* Custom dots */}
         <div className="button-controller_container">
-          {items.map((_, index) => (
+          {offers.map((_, index) => (
             <div
               key={index}
               className={`button-controller ${

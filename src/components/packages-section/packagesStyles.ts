@@ -9,12 +9,25 @@ interface PackageCardProps {
 export const PackagesSectionContainer = styled("div")(({ theme }) => ({
   display: "flex",
   flexDirection: "column",
-  marginTop: "20px",
+  marginTop: "25px",
   width: "100%",
 
+  ".top-section": {
+    display: "flex",
+    flexDirection: "row",
+    justifyContent: "space-between",
+    alignItems: "center",
+  },
+  ".grid_switcher_and_explore_btn": {
+    display: "flex",
+    flexDirection: "row",
+    alignItems: "center",
+    justifyContent: "center",
+    gap: "10px",
+  },
   header: {
     fontSize: "15px",
-    fontWeight: "bold",
+    fontWeight: "600",
     color: theme.colors.text1,
   },
 }));
@@ -23,7 +36,7 @@ export const PackagesCardContainer = styled("div")({
   display: "grid",
   gridTemplateColumns: "repeat(3, minmax(0, 1fr))",
   gap: "10px",
-  marginTop: "20px",
+  marginTop: "10px",
   width: "100%",
   "@media (max-width: 355px)": {
     gap: "8px",
@@ -131,16 +144,6 @@ export const PkgRibbon = styled("div", {
   },
 }));
 
-export const PkgBuyButton = styled(Button)(({ theme }) => ({
-  display: "flex",
-  color: theme.colors.text1,
-  background: `${theme.colors.primary}`,
-  width: "100%",
-  height: "35px",
-  textTransform: "none",
-  marginTop: "8px",
-}));
-
 export const MoreDealsPackageCard = styled("div", {
   shouldForwardProp: (prop) =>
     prop !== "ribbonBgColor" && prop !== "ribbonTextColor",
@@ -238,6 +241,7 @@ export const MoreDealsPackageCard = styled("div", {
     },
 
     ".pkg_button": {
+      marginTop: "8px",
       width: "100%",
       background: color,
       color: ribbonTextColor || "#fff",
