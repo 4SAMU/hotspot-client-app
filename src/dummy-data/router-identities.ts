@@ -5,7 +5,7 @@ export const routerIdentities: Record<string, RouterIdentity> = {
   "classic-barber-shop": {
     identity: "classic-barber-shop",
 
-    name: "Classic <span>Barber</span> Shop",
+    name: "Classic <span>Barber</span> Wifi",
 
     supportNumber: "+254700000000",
 
@@ -16,7 +16,7 @@ export const routerIdentities: Record<string, RouterIdentity> = {
         ...defaultTheme.colors,
 
         primary: "#392d2d",
-        titleSpanColor: "#392d2d",
+        titleSpanColor: "#6c3e3c",
         background: "#f4f4f4",
         textColor: "#111820",
         buttonTextColor: "#f1e8e8",
@@ -63,16 +63,16 @@ export const routerIdentities: Record<string, RouterIdentity> = {
         titleSpanColor: "#00c96e",
         background: "#0D1117",
         textColor: "#E6EDF3",
-        buttonTextColor: "#050505",
-        accent: "#0afde9",
+        buttonTextColor: "#E6EDF3",
+        accent: "#0bd7f1",
       },
     },
   },
 
-  "Salon-Deluxe": {
-    identity: "Salon-Deluxe",
+  "salon-deluxe": {
+    identity: "salon-deluxe",
 
-    name: "Salon <span>Deluxe</span>",
+    name: "Salon Deluxe <span>Hotspot</span>",
 
     supportNumber: "+254700000000",
 
@@ -88,6 +88,28 @@ export const routerIdentities: Record<string, RouterIdentity> = {
         textColor: "#111820",
         buttonTextColor: "#f1e8e8",
         accent: "#cf087c",
+      },
+    },
+  },
+  konekti: {
+    identity: "konekti",
+
+    name: "konekti<span>HOTSPOT</span>",
+
+    supportNumber: "+254713563798",
+
+    theme: {
+      ...defaultTheme,
+
+      colors: {
+        ...defaultTheme.colors,
+
+        primary: "#0073e6",
+        titleSpanColor: "#0073e6",
+        background: "#0f1214",
+        textColor: "#ffffff",
+        buttonTextColor: "#ffffff",
+        accent: "#ffffff",
       },
     },
   },

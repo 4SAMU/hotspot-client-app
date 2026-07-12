@@ -1,4 +1,4 @@
-import { Box, Button, styled } from "@mui/material";
+import { Button, styled } from "@mui/material";
 
 export const OutlinedButton = styled(Button)(({ theme }) => ({
   display: "flex",
@@ -9,6 +9,7 @@ export const OutlinedButton = styled(Button)(({ theme }) => ({
   color: theme.colors.accent,
   fontSize: "10.5px",
   fontFamily: '"JetBrains Mono", monospace',
+  fontWeight: "500",
   transition: "0.3s all ease-in-out",
   gap: "5px",
 
@@ -31,6 +32,7 @@ export const FilledButton = styled(Button)(({ theme }) => ({
   transition: "all 0.3s ease-in-out",
   fontFamily: '"JetBrains Mono",monospace',
   fontSize: "13px",
+  fontWeight: "600",
 
   "&:hover": {
     background: `${theme.colors.primary}CC`,
@@ -45,3 +47,13 @@ export const FilledButton = styled(Button)(({ theme }) => ({
     fontSize: 22,
   },
 }));
+
+export const RowDisplay = styled("div")({
+  display: "flex",
+  flexDirection: "row",
+});
+
+export const ColumnDisplay = styled("div")({
+  display: "flex",
+  flexDirection: "column",
+});

@@ -1,5 +1,4 @@
 import { createContext, ReactNode, useEffect, useState } from "react";
-
 import { useRouter } from "next/router";
 
 import { useTheme } from "@/hooks/useTheme";
@@ -8,13 +7,11 @@ import { RouterIdentity } from "@/types/routerIdentity";
 
 interface RouterIdentityContextType {
   routerIdentity: RouterIdentity | null;
-
   loading: boolean;
 }
 
 export const RouterIdentityContext = createContext<RouterIdentityContextType>({
   routerIdentity: null,
-
   loading: true,
 });
 
@@ -26,7 +23,6 @@ export const RouterIdentityProvider = ({
   children,
 }: RouterIdentityProviderProps) => {
   const router = useRouter();
-
   const { setTheme } = useTheme();
 
   const [routerIdentity, setRouterIdentity] = useState<RouterIdentity | null>(
@@ -38,11 +34,10 @@ export const RouterIdentityProvider = ({
   useEffect(() => {
     if (!router.isReady) return;
 
-    const identity = router.query.router as string;
+    const identity = (router.query.router as string)?.trim().toLowerCase();
 
     if (!identity) {
       setLoading(false);
-
       return;
     }
 
@@ -50,7 +45,6 @@ export const RouterIdentityProvider = ({
 
     if (routerConfig) {
       setRouterIdentity(routerConfig);
-
       setTheme(routerConfig.theme);
     }
 
@@ -61,7 +55,6 @@ export const RouterIdentityProvider = ({
     <RouterIdentityContext.Provider
       value={{
         routerIdentity,
-
         loading,
       }}
     >

@@ -15,7 +15,8 @@ export const FooterTextContents = styled("footer")(({ theme }) => ({
   fontSize: "13px",
 
   span: {
-    color: theme.colors.primary,
+    color: theme.colors.titleSpanColor,
+    fontWeight: "600",
   },
 
   ".left-items": {
