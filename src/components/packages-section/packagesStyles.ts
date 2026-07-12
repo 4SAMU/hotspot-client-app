@@ -28,7 +28,7 @@ export const PackagesSectionContainer = styled("div")(({ theme }) => ({
   header: {
     fontSize: "15px",
     fontWeight: "600",
-    color: theme.colors.text1,
+    color: theme.colors.textColor,
   },
 }));
 
@@ -63,7 +63,7 @@ export const PackageCard = styled("div", {
   minHeight: "150px",
   boxSizing: "border-box", // keeps the actual width of elements
   transition: "0.25s all ease-in-out",
-  color: theme.colors.text1,
+  color: theme.colors.textColor,
 
   "&:hover": {
     transform: "translateY(-6px)",
@@ -72,7 +72,7 @@ export const PackageCard = styled("div", {
   },
 
   h3: {
-    color: theme.colors.text1,
+    color: theme.colors.textColor,
     fontSize: "14px",
     fontWeight: 1000,
     fontFamily: '"JetBrains Mono",monospace',
@@ -83,7 +83,7 @@ export const PackageCard = styled("div", {
   },
 
   li: {
-    color: theme.colors.text1,
+    color: theme.colors.textColor,
     fontSize: "9px",
     fontWeight: 400,
     marginBottom: "4px",
@@ -221,7 +221,7 @@ export const MoreDealsPackageCard = styled("div", {
       alignItems: "center",
       flex: 1,
       padding: "10px",
-      color: theme.colors.text1,
+      color: theme.colors.textColor,
     },
 
     ul: {
@@ -277,38 +277,43 @@ export const ToggleContainer = styled(Box)(({ theme }) => ({
   padding: "2px",
   borderRadius: "999px",
   border: `1px solid ${theme.colors.primary}50`,
-  // background: theme.colors.background,
   background: "transparent",
 }));
 
 export const ToggleIndicator = styled(Box)(({ theme }) => ({
   position: "absolute",
-  top: "3px",
+  top: "4px",
   left: "3px",
   width: "40px",
-  height: "32px",
+  height: "30px",
   borderRadius: "999px",
   background: theme.colors.primary,
   transition: "transform 0.3s ease-in-out",
 }));
 
-export const ToggleOption = styled(Box)(({ theme }) => ({
-  flex: 1,
-  height: "100%",
-  display: "flex",
-  alignItems: "center",
-  justifyContent: "center",
-  cursor: "pointer",
-  zIndex: 2,
-  transition: "color 0.3s ease",
+interface ToggleOptionProps {
+  active: boolean;
+}
 
-  "& svg": {
-    fontSize: "20px",
-    color: theme.colors.text1,
+export const ToggleOption = styled(Box)<ToggleOptionProps>(
+  ({ theme, active }) => ({
+    flex: 1,
+    height: "100%",
+    display: "flex",
+    alignItems: "center",
+    justifyContent: "center",
+    cursor: "pointer",
+    zIndex: 2,
     transition: "color 0.3s ease",
-  },
 
-  "&:hover": {
-    opacity: 0.85,
-  },
-}));
+    "& svg": {
+      fontSize: "20px",
+      color: active ? theme.colors.buttonTextColor : theme.colors.primary,
+      transition: "color 0.3s ease",
+    },
+
+    "&:hover": {
+      opacity: 0.85,
+    },
+  }),
+);

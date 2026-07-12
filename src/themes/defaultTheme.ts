@@ -7,15 +7,15 @@ export const defaultTheme: ThemeConfig = {
     primary: "#00c96e",
     secondary: "#000",
 
-    text1: "#E6EDF3",
-    text2: "#000",
+    titleSpanColor: "#00c96e", //title span accent color
+    textColor: "#E6EDF3",
+    buttonTextColor: "#000",
 
     success: "#22C55E",
     warning: "#F59E0B",
     error: "#EF4444",
 
-    accent1: "#00c96e",
-    accent2: "#0bd7f1",
+    accent: "#0bd7f1",
 
     border1: "#E5E7EB",
     border2: "#0D1117",

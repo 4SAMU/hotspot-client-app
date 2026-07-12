@@ -15,12 +15,12 @@ export const routerIdentities: Record<string, RouterIdentity> = {
       colors: {
         ...defaultTheme.colors,
 
-        primary: "#FF531E",
-        success: "#FF531E",
-        background: "#FFF7F0",
-        text1: "#000",
-        text2: "#f1e8e8",
-        accent2: "#16803c",
+        primary: "#392d2d",
+        titleSpanColor: "#392d2d",
+        background: "#f4f4f4",
+        textColor: "#111820",
+        buttonTextColor: "#f1e8e8",
+        accent: "#6c3e3c",
       },
     },
   },
@@ -37,14 +37,12 @@ export const routerIdentities: Record<string, RouterIdentity> = {
 
       colors: {
         ...defaultTheme.colors,
-
-        primary: "#8de619",
-
-        success: "#46eb25",
-        background: "#0D1117",
-        text1: "#fff",
-        text2: "#050505",
-        accent2: "#14ecc8",
+        primary: "#233245",
+        titleSpanColor: "#70441a",
+        background: "#e6dcd0",
+        textColor: "#050811",
+        buttonTextColor: "#e6dcd0",
+        accent: "#70441a",
       },
     },
   },
@@ -62,11 +60,34 @@ export const routerIdentities: Record<string, RouterIdentity> = {
       colors: {
         ...defaultTheme.colors,
         primary: "#00c96e",
+        titleSpanColor: "#00c96e",
         background: "#0D1117",
-        text1: "#E6EDF3",
-        text2: "#030303",
-        accent2: "#0bd7f1",
-        border1: "#333435",
+        textColor: "#E6EDF3",
+        buttonTextColor: "#050505",
+        accent: "#0afde9",
+      },
+    },
+  },
+
+  "Salon-Deluxe": {
+    identity: "Salon-Deluxe",
+
+    name: "Salon <span>Deluxe</span>",
+
+    supportNumber: "+254700000000",
+
+    theme: {
+      ...defaultTheme,
+
+      colors: {
+        ...defaultTheme.colors,
+
+        primary: "#111820",
+        titleSpanColor: "#cf087c",
+        background: "#f1e8e8",
+        textColor: "#111820",
+        buttonTextColor: "#f1e8e8",
+        accent: "#cf087c",
       },
     },
   },

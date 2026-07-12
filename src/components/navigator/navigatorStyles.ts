@@ -34,7 +34,7 @@ export const NavigatorContainer = styled("div")(({ theme }) => ({
     padding: "2px",
     borderRadius: "5px",
     transition: "0.3 all ease-in-out",
-    color: theme.colors.text1,
+    color: theme.colors.textColor,
   },
   ".icons:hover": {
     background: "red",

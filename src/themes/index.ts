@@ -12,15 +12,15 @@ export interface ThemeColors {
   primary: string;
   secondary: string;
 
-  text1: string;
-  text2: string;
+  titleSpanColor: string; //title span accent color
+  textColor: string;
+  buttonTextColor: string;
 
   success: string;
   warning: string;
   error: string;
 
-  accent1: string;
-  accent2: string;
+  accent: string;
 
   border1: string;
   border2: string;

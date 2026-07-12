@@ -1,4 +1,4 @@
-import { Button, styled } from "@mui/material";
+import { styled } from "@mui/material";
 
 export const HeaderContainer = styled("header")(({ theme }) => ({
   display: "flex",
@@ -12,14 +12,14 @@ export const HeaderContainer = styled("header")(({ theme }) => ({
     justifyContent: "center",
     width: "25px",
     height: "25px",
-    border: `1px solid ${theme.colors.text1}`,
+    border: `1px solid ${theme.colors.textColor}`,
     borderRadius: "50%",
     cursor: "pointer",
     transition: "0.3s all ease-in-out",
 
     "& svg": {
       fontSize: "20px",
-      color: theme.colors.text1,
+      color: theme.colors.textColor,
       transition: "0.3s all ease-in-out",
     },
 
@@ -61,7 +61,7 @@ export const TagsContainer = styled("div")(({ theme }) => ({
   flexWrap: "wrap",
   margin: "10px 10px 0 20px",
   gap: "10px",
-  borderBottom: `1px solid ${theme.colors.accent2}50`,
+  borderBottom: `1px solid ${theme.colors.accent}50`,
   padding: "0 0 10px 0",
   "@media (max-width: 370px)": {
     margin: "10px",
@@ -75,15 +75,16 @@ export const HeaderTitle = styled("div")(({ theme }) => ({
   h1: {
     fontSize: "1.5rem",
     fontWeight: "bold",
-    color: theme.colors.text1,
+    color: theme.colors.textColor,
   },
 
   span: {
-    color: theme.colors.primary,
+    //if no span color is provided, use the default primary color
+    color: theme.colors.titleSpanColor || theme.colors.primary,
   },
   ".tagline": {
     fontSize: "10px",
-    color: theme.colors.text1,
+    color: theme.colors.textColor,
     textTransform: "uppercase",
     marginTop: "8px",
   },
@@ -92,7 +93,7 @@ export const HeaderTitle = styled("div")(({ theme }) => ({
 export const OfferBannerSection = styled("div")(({ theme }) => ({
   display: "flex",
   flexDirection: "column",
-  color: theme.colors.text1,
+  color: theme.colors.textColor,
   width: "100%",
   marginTop: "15px",
 }));
@@ -125,7 +126,7 @@ export const OfferBannerContainer = styled("div")(({ theme }) => ({
   ".button-controller": {
     width: "4px",
     height: "8px",
-    backgroundColor: theme.colors.text1,
+    backgroundColor: theme.colors.textColor,
     opacity: 0.4,
     cursor: "pointer",
     transition: "all 0.25s ease",
@@ -145,7 +146,7 @@ export const OfferBannerCard = styled("div")(({ theme }) => ({
   display: "flex",
   flexDirection: "row",
   backgroundColor: `${theme.colors.primary}50`,
-  color: theme.colors.text1,
+  color: theme.colors.textColor,
   borderRadius: "8px",
   height: "120px",
   width: "100%",
@@ -194,14 +195,14 @@ export const CantReconnectContainer = styled("div")(({ theme }) => ({
   display: "flex",
   flexDirection: "column",
   justifyContent: "center",
-  color: theme.colors.text1,
-  border: `1px solid ${theme.colors.accent2}50`,
+  color: theme.colors.textColor,
+  border: `1px solid ${theme.colors.accent}50`,
   width: "100%",
   borderRadius: "10px",
   padding: "10px",
   fontSize: "11px",
   marginTop: "20px",
-  background: `${theme.colors.accent2}20`, // add 99 for 60% opacity
+  background: `${theme.colors.accent}20`, // add 99 for 60% opacity
 
   ul: {
     margin: 0,
@@ -214,14 +215,14 @@ export const CantReconnectContainer = styled("div")(({ theme }) => ({
   },
 
   ".my-account-link": {
-    color: theme.colors.accent2,
+    color: theme.colors.accent,
     textDecoration: "underline dashed",
     fontWeight: "bold",
     fontSize: "12px",
   },
 
   ".support-link": {
-    color: theme.colors.text1,
+    color: theme.colors.textColor,
   },
 
   "@media (max-width: 355px)": {

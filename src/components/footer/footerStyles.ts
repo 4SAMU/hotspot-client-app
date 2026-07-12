@@ -22,9 +22,9 @@ export const FooterTextContents = styled("footer")(({ theme }) => ({
     display: "flex",
     flexDirection: "column",
     justifyContent: "center",
-    color: theme.colors.text1,
+    color: theme.colors.textColor,
     ".powered-by": {
-      color: theme.colors.text1,
+      color: theme.colors.textColor,
       fontSize: "11px",
     },
   },

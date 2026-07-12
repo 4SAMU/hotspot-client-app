@@ -13,13 +13,13 @@ export const InputContainer = styled(Box)(({ theme }) => ({
   borderRadius: 6,
 
   // background: theme.colors.background,
-  border: `1px solid ${alpha(theme.colors.accent2, 0.5)}`,
+  border: `1px solid ${alpha(theme.colors.accent, 0.5)}`,
 
   transition: "all .25s ease",
 
   "&:focus-within": {
-    borderColor: theme.colors.accent2,
-    boxShadow: `0 0 0 3px ${alpha(theme.colors.accent2, 0.12)}`,
+    borderColor: theme.colors.accent,
+    boxShadow: `0 0 0 3px ${alpha(theme.colors.accent, 0.12)}`,
   },
 }));
 
@@ -29,12 +29,13 @@ export const IconContainer = styled(Box)(({ theme }) => ({
   display: "flex",
   alignItems: "center",
   justifyContent: "center",
-  background: theme.colors.accent2,
-  color: theme.colors.text1,
+  background: theme.colors.accent,
+  color: theme.colors.textColor,
   cursor: "pointer",
 
   "& svg": {
     fontSize: 22,
+    filter: "invert(1)",
   },
 }));
 
@@ -47,10 +48,10 @@ export const StyledInput = styled(InputBase)(({ theme }) => ({
     fontSize: 15,
     fontFamily: '"JetBrains Mono", monospace',
 
-    color: theme.colors.text1,
+    color: theme.colors.textColor,
 
     "&::placeholder": {
-      color: alpha(theme.colors.accent2, 0.45),
+      color: alpha(theme.colors.accent, 0.45),
       opacity: 0.5,
     },
   },

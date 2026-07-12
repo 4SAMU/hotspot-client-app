@@ -5,8 +5,8 @@ export const OutlinedButton = styled(Button)(({ theme }) => ({
   textTransform: "none",
   height: "30px",
   background: `${theme.colors.background}`,
-  border: `1px solid ${theme.colors.accent2}`,
-  color: theme.colors.accent2,
+  border: `1px solid ${theme.colors.accent}`,
+  color: theme.colors.accent,
   fontSize: "10.5px",
   fontFamily: '"JetBrains Mono", monospace',
   transition: "0.3s all ease-in-out",
@@ -25,7 +25,7 @@ export const FilledButton = styled(Button)(({ theme }) => ({
   height: "30px",
   textTransform: "none",
   background: theme.colors.primary,
-  color: theme.colors.text1,
+  color: theme.colors.buttonTextColor,
   borderRadius: "4px",
   cursor: "pointer",
   transition: "all 0.3s ease-in-out",
@@ -34,12 +34,12 @@ export const FilledButton = styled(Button)(({ theme }) => ({
 
   "&:hover": {
     background: `${theme.colors.primary}CC`,
-    color: theme.colors.text1,
+    color: theme.colors.textColor,
   },
 
   "&:active": {
     background: `${theme.colors.primary}CC`,
-    color: theme.colors.text1,
+    color: theme.colors.textColor,
   },
   "& svg": {
     fontSize: 22,

@@ -111,20 +111,18 @@ const PackagesSection = () => {
             }}
           />
 
-          <ToggleOption onClick={() => setView("grid")}>
-            <ViewGridIcon
-              sx={{
-                color: view === "grid" ? "#fff" : theme.colors.text1,
-              }}
-            />
+          <ToggleOption
+            active={view === "grid"}
+            onClick={() => setView("grid")}
+          >
+            <ViewGridIcon />
           </ToggleOption>
 
-          <ToggleOption onClick={() => setView("list")}>
-            <ViewListIcon
-              sx={{
-                color: view === "list" ? "#fff" : theme.colors.text1,
-              }}
-            />
+          <ToggleOption
+            active={view === "list"}
+            onClick={() => setView("list")}
+          >
+            <ViewListIcon />
           </ToggleOption>
         </ToggleContainer>
       </Box>
