@@ -1,11 +1,14 @@
 import { useState } from "react";
-import { Box, ToggleButton, ToggleButtonGroup } from "@mui/material";
+import { Box } from "@mui/material";
 
 import {
   PackageCard,
   PackagesCardContainer,
   PackagesSectionContainer,
   PkgRibbon,
+  ToggleContainer,
+  ToggleIndicator,
+  ToggleOption,
 } from "./packagesStyles";
 
 import { FilledButton, OutlinedButton } from "@/styles/common-styles";
@@ -78,42 +81,52 @@ const PackagesSection = () => {
 
   const [view, setView] = useState<"grid" | "list">("grid");
 
+  const scrollToExploreMore = () => {
+    const element = document.getElementById("explore-more-deals");
+
+    if (element) {
+      window.scrollTo({
+        top: element.getBoundingClientRect().top + window.scrollY - 90,
+        behavior: "smooth",
+      });
+    }
+  };
+
   return (
     <PackagesSectionContainer>
-      <Box className="top-section">
+      <Box
+        className="top-section"
+        sx={{
+          display: "flex",
+          justifyContent: "space-between",
+          alignItems: "center",
+        }}
+      >
         <header>Our Deals 🔥</header>
 
-        <ToggleButtonGroup
-          exclusive
-          value={view}
-          onChange={(_, value) => value && setView(value)}
-          size="small"
-          sx={{
-            "& .MuiToggleButton-root": {
-              border: `1px solid ${theme.colors.text1}`,
-              color: theme.colors.text1,
-              px: 1.3,
-              py: 0.5,
-            },
+        <ToggleContainer>
+          <ToggleIndicator
+            sx={{
+              transform: view === "grid" ? "translateX(0)" : "translateX(100%)",
+            }}
+          />
 
-            "& .Mui-selected": {
-              background: theme.colors.primary,
-              color: "#fff",
-            },
+          <ToggleOption onClick={() => setView("grid")}>
+            <ViewGridIcon
+              sx={{
+                color: view === "grid" ? "#fff" : theme.colors.text1,
+              }}
+            />
+          </ToggleOption>
 
-            "& .Mui-selected:hover": {
-              background: theme.colors.primary,
-            },
-          }}
-        >
-          <ToggleButton value="grid">
-            <ViewGridIcon />
-          </ToggleButton>
-
-          <ToggleButton value="list">
-            <ViewListIcon />
-          </ToggleButton>
-        </ToggleButtonGroup>
+          <ToggleOption onClick={() => setView("list")}>
+            <ViewListIcon
+              sx={{
+                color: view === "list" ? "#fff" : theme.colors.text1,
+              }}
+            />
+          </ToggleOption>
+        </ToggleContainer>
       </Box>
 
       <PackagesCardContainer className={view}>
@@ -155,10 +168,11 @@ const PackagesSection = () => {
         }}
       >
         <OutlinedButton
+          onClick={scrollToExploreMore}
           sx={{
             border: `1px solid ${theme.colors.primary}`,
             color: theme.colors.primary,
-            height: "36px",
+            height: 36,
           }}
         >
           Explore More

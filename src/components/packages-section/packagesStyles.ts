@@ -1,4 +1,4 @@
-import { alpha, Button, styled } from "@mui/material";
+import { alpha, Box, Button, styled } from "@mui/material";
 
 interface PackageCardProps {
   hasRibbon?: boolean;
@@ -267,3 +267,48 @@ export const MoreDealsPackageCard = styled("div", {
     },
   };
 });
+
+export const ToggleContainer = styled(Box)(({ theme }) => ({
+  position: "relative",
+  display: "flex",
+  alignItems: "center",
+  width: "88px",
+  height: "40px",
+  padding: "2px",
+  borderRadius: "999px",
+  border: `1px solid ${theme.colors.primary}50`,
+  // background: theme.colors.background,
+  background: "transparent",
+}));
+
+export const ToggleIndicator = styled(Box)(({ theme }) => ({
+  position: "absolute",
+  top: "3px",
+  left: "3px",
+  width: "40px",
+  height: "32px",
+  borderRadius: "999px",
+  background: theme.colors.primary,
+  transition: "transform 0.3s ease-in-out",
+}));
+
+export const ToggleOption = styled(Box)(({ theme }) => ({
+  flex: 1,
+  height: "100%",
+  display: "flex",
+  alignItems: "center",
+  justifyContent: "center",
+  cursor: "pointer",
+  zIndex: 2,
+  transition: "color 0.3s ease",
+
+  "& svg": {
+    fontSize: "20px",
+    color: theme.colors.text1,
+    transition: "color 0.3s ease",
+  },
+
+  "&:hover": {
+    opacity: 0.85,
+  },
+}));
