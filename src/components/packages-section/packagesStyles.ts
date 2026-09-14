@@ -99,7 +99,7 @@ export const PackageCard = styled("div", {
   position: "relative",
   display: "flex",
   flexDirection: "column",
-  padding: hasRibbon ? "20px 10px 40px 10px" : "10px 10px 20px 10px",
+  padding: hasRibbon ? "28px 10px 40px 10px" : "12px 10px 20px 10px",
   background: `${theme.colors.primary}05`,
   cursor: "pointer",
   border: ribbonBgColor
@@ -142,14 +142,19 @@ export const PkgRibbon = styled("div", {
     prop !== "ribbonTextColor",
 })<PackageCardProps>(({ ribbonBgColor, ribbonTextColor = "#fff" }) => ({
   position: "absolute",
+  display: "flex",
+  alignItems: "center",
+  justifyContent: "center",
   top: "-1px",
   right: "-1px",
   padding: "2px 10px",
   borderRadius: "0 8px 0 8px",
   backgroundColor: ribbonBgColor,
   color: ribbonTextColor,
-  fontSize: "13px",
-  fontWeight: 600,
+  fontSize: "12.5px",
+  fontWeight: 500,
+  height: "20px",
+  boxSizing: "border-box",
   "@media (max-width: 355px)": {
     fontSize: "10px",
     padding: "2px 5px",
@@ -361,26 +366,26 @@ export const ToggleIndicator = styled(Box)(({ theme }) => ({
 }));
 
 interface ToggleOptionProps {
-  active: boolean;
+  $active: boolean;
 }
 
-export const ToggleOption = styled(Box)<ToggleOptionProps>(
-  ({ theme, active }) => ({
-    flex: 1,
-    height: "100%",
-    display: "flex",
-    alignItems: "center",
-    justifyContent: "center",
-    cursor: "pointer",
-    zIndex: 2,
+export const ToggleOption = styled(Box, {
+  shouldForwardProp: (prop) => prop !== "$active",
+})<ToggleOptionProps>(({ theme, $active }) => ({
+  flex: 1,
+  height: "100%",
+  display: "flex",
+  alignItems: "center",
+  justifyContent: "center",
+  cursor: "pointer",
+  zIndex: 2,
+  transition: "color 0.3s ease",
+
+  "& svg": {
+    fontSize: "20px",
+    color: $active ? theme.colors.buttonTextColor : theme.colors.primary,
     transition: "color 0.3s ease",
+  },
 
-    "& svg": {
-      fontSize: "20px",
-      color: active ? theme.colors.buttonTextColor : theme.colors.primary,
-      transition: "color 0.3s ease",
-    },
-
-    "&:hover": { opacity: 0.85 },
-  }),
-);
+  "&:hover": { opacity: 0.85 },
+}));

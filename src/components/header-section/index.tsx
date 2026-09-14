@@ -1,10 +1,15 @@
 import { useRouterIdentity } from "@/hooks/useRouterIdentity";
 import { HeaderContainer, HeaderTitle, TagsContainer } from "./headerStyles";
+
 import TipsAndUpdatesOutlinedIcon from "@mui/icons-material/TipsAndUpdatesOutlined";
 import PersonIcon from "@mui/icons-material/Person";
 import { OutlinedButton } from "@/styles/common-styles";
 
-const HeaderSection = () => {
+interface HeaderSectionProps {
+  onHowItWorks: () => void;
+}
+
+const HeaderSection: React.FC<HeaderSectionProps> = ({ onHowItWorks }) => {
   const { routerIdentity, loading } = useRouterIdentity();
 
   if (loading) {
@@ -23,16 +28,19 @@ const HeaderSection = () => {
 
           <div className="tagline">Fast · Instant · Reliable</div>
         </HeaderTitle>
+
         <div className="my-account-icon">
           <PersonIcon />
           <span className="icon-badge" />
         </div>
       </HeaderContainer>
+
       <TagsContainer>
-        <OutlinedButton>
+        <OutlinedButton onClick={onHowItWorks}>
           <TipsAndUpdatesOutlinedIcon />
           How it Works
         </OutlinedButton>
+
         <OutlinedButton>
           <PersonIcon />
           My Account

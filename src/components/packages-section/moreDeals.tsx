@@ -61,7 +61,7 @@ const packages: Package[] = [
 const MoreDealsPackagesSection = () => {
   return (
     <PackagesSectionContainer id="explore-more-deals">
-      <header>Explore More Wifi Deals 🔥</header>
+      <h4>Explore More Wifi Deals 🔥</h4>
 
       <PackagesCardContainer>
         {packages.map((pkg) => (

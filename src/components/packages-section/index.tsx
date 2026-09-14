@@ -149,7 +149,7 @@ const PackagesSection = () => {
           alignItems: "center",
         }}
       >
-        <header>Our Wifi Deals 🔥</header>
+        <h4>Our Wifi Deals 🔥</h4>
 
         <ToggleContainer>
           <ToggleIndicator
@@ -158,13 +158,13 @@ const PackagesSection = () => {
             }}
           />
           <ToggleOption
-            active={view === "grid"}
+            $active={view === "grid"}
             onClick={() => setView("grid")}
           >
             <ViewGridIcon />
           </ToggleOption>
           <ToggleOption
-            active={view === "list"}
+            $active={view === "list"}
             onClick={() => setView("list")}
           >
             <ViewListIcon />

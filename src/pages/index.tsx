@@ -9,8 +9,8 @@ import ReviewSection from "@/components/review-section";
 const index = () => {
   return (
     <DefaultLayout>
-      <OfferBanner />
       <CantReconnect />
+      <OfferBanner />
       <PackagesSection />
       <AlreadyHaveCredentialsSection />
       <MoreDealsPackagesSection />

@@ -201,7 +201,7 @@ export const CantReconnectContainer = styled("div")(({ theme }) => ({
   borderRadius: "10px",
   padding: "10px",
   fontSize: "11px",
-  marginTop: "20px",
+  margin: "10px",
   background: `${theme.colors.accent}20`, // add 99 for 60% opacity
 
   ul: {

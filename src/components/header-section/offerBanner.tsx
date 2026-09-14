@@ -83,7 +83,7 @@ const OfferBanner = () => {
 
   return (
     <OfferBannerSection>
-      <p>Explore our amazing Offers!</p>
+      <h4>Today's Offers!</h4>
 
       <OfferBannerContainer>
         <AliceCarousel
