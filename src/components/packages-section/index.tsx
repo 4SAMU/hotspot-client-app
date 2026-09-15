@@ -36,12 +36,20 @@ export interface Package {
   };
 }
 
+interface PackagesSectionProps {
+  onBuyPackageClick: (pkg: Package) => void;
+}
+
 const packages: Package[] = [
   {
     title: "14 Hours",
     price: "KES 30",
     features: ["Enjoy 14hrs of unlimited access"],
-    ribbon: { text: "New Offer", bgColor: "#ece90f", textColor: "#000" },
+    ribbon: {
+      text: "New Offer",
+      bgColor: "#ece90f",
+      textColor: "#000",
+    },
   },
   {
     title: "24 Hours",
@@ -50,7 +58,11 @@ const packages: Package[] = [
       "Enjoy 24hrs of unlimited access",
       "Connect up to 2 devices simultaneously",
     ],
-    ribbon: { text: "🔥 Hot Deal", bgColor: "#fa2424", textColor: "#fff" },
+    ribbon: {
+      text: "🔥 Hot Deal",
+      bgColor: "#fa2424",
+      textColor: "#fff",
+    },
   },
   {
     title: "2 Hours",
@@ -66,31 +78,61 @@ const packages: Package[] = [
     title: "8 Hours",
     price: "KES 20",
     features: ["Enjoy 8hrs of unlimited access"],
-    ribbon: { text: "Popular", bgColor: "#38ee0a", textColor: "#000" },
+    ribbon: {
+      text: "Popular",
+      bgColor: "#38ee0a",
+      textColor: "#000",
+    },
   },
 ];
 
-// --- Shared sub-pieces, reused by both grid and list card layouts ---
+// -----------------------------------------------------------------------------
+// Shared card pieces
+// -----------------------------------------------------------------------------
 
-const PackageFeatures = ({ pkg }: { pkg: Package }) => (
+interface PackageFeaturesProps {
+  pkg: Package;
+}
+
+const PackageFeatures = ({ pkg }: PackageFeaturesProps) => (
   <>
     <h3>{pkg.title}</h3>
-    <ul>
-      {pkg.features?.map((feature) => (
-        <li key={feature}>{feature}</li>
-      ))}
-    </ul>
+
+    {pkg.features && (
+      <ul>
+        {pkg.features.map((feature) => (
+          <li key={feature}>{feature}</li>
+        ))}
+      </ul>
+    )}
   </>
 );
 
-const PackagePriceAction = ({ pkg }: { pkg: Package }) => (
+interface PackagePriceActionProps {
+  pkg: Package;
+  onBuy?: () => void;
+}
+
+const PackagePriceAction = ({ pkg, onBuy }: PackagePriceActionProps) => (
   <>
     <span className="price">{pkg.price}</span>
-    <FilledButton className="pkg_button">Buy</FilledButton>
+
+    <FilledButton className="pkg_button" onClick={onBuy}>
+      Buy
+    </FilledButton>
   </>
 );
 
-const GridPackageCard = ({ pkg }: { pkg: Package }) => (
+// -----------------------------------------------------------------------------
+// Grid card
+// -----------------------------------------------------------------------------
+
+interface GridPackageCardProps {
+  pkg: Package;
+  onBuy?: (pkg: Package) => void;
+}
+
+const GridPackageCard = ({ pkg, onBuy }: GridPackageCardProps) => (
   <PackageCard hasRibbon={!!pkg.ribbon} ribbonBgColor={pkg.ribbon?.bgColor}>
     {pkg.ribbon && (
       <PkgRibbon
@@ -100,12 +142,23 @@ const GridPackageCard = ({ pkg }: { pkg: Package }) => (
         {pkg.ribbon.text}
       </PkgRibbon>
     )}
+
     <PackageFeatures pkg={pkg} />
-    <PackagePriceAction pkg={pkg} />
+
+    <PackagePriceAction pkg={pkg} onBuy={() => onBuy?.(pkg)} />
   </PackageCard>
 );
 
-const ListPackageCard = ({ pkg }: { pkg: Package }) => (
+// -----------------------------------------------------------------------------
+// List card
+// -----------------------------------------------------------------------------
+
+interface ListPackageCardProps {
+  pkg: Package;
+  onBuy?: (pkg: Package) => void;
+}
+
+const ListPackageCard = ({ pkg, onBuy }: ListPackageCardProps) => (
   <PkgCardInListView>
     <PkgRibbonInListView
       ribbonBgColor={pkg.ribbon?.bgColor}
@@ -120,27 +173,36 @@ const ListPackageCard = ({ pkg }: { pkg: Package }) => (
     </ColumnDisplay>
 
     <ColumnDisplay>
-      <PackagePriceAction pkg={pkg} />
+      <PackagePriceAction pkg={pkg} onBuy={() => onBuy?.(pkg)} />
     </ColumnDisplay>
   </PkgCardInListView>
 );
 
-const PackagesSection = () => {
+// -----------------------------------------------------------------------------
+// Main section
+// -----------------------------------------------------------------------------
+
+const PackagesSection: React.FC<PackagesSectionProps> = ({
+  onBuyPackageClick,
+}) => {
   const { theme } = useTheme();
+
   const [view, setView] = useState<"grid" | "list">("grid");
 
   const scrollToExploreMore = () => {
     const element = document.getElementById("explore-more-deals");
-    if (element) {
-      window.scrollTo({
-        top: element.getBoundingClientRect().top + window.scrollY - 90,
-        behavior: "smooth",
-      });
-    }
+
+    if (!element) return;
+
+    window.scrollTo({
+      top: element.getBoundingClientRect().top + window.scrollY - 90,
+      behavior: "smooth",
+    });
   };
 
   return (
     <PackagesSectionContainer>
+      {/* Header */}
       <Box
         className="top-section"
         sx={{
@@ -157,12 +219,14 @@ const PackagesSection = () => {
               transform: view === "grid" ? "translateX(0)" : "translateX(100%)",
             }}
           />
+
           <ToggleOption
             $active={view === "grid"}
             onClick={() => setView("grid")}
           >
             <ViewGridIcon />
           </ToggleOption>
+
           <ToggleOption
             $active={view === "list"}
             onClick={() => setView("list")}
@@ -172,19 +236,36 @@ const PackagesSection = () => {
         </ToggleContainer>
       </Box>
 
+      {/* Grid */}
       <PackagesCardContainer className={view}>
         {packages.map((pkg) => (
-          <GridPackageCard key={pkg.title} pkg={pkg} />
+          <GridPackageCard
+            key={pkg.title}
+            pkg={pkg}
+            onBuy={onBuyPackageClick}
+          />
         ))}
       </PackagesCardContainer>
 
+      {/* List */}
       <PackagesCardContainerInListView className={view}>
         {packages.map((pkg) => (
-          <ListPackageCard key={pkg.title} pkg={pkg} />
+          <ListPackageCard
+            key={pkg.title}
+            pkg={pkg}
+            onBuy={onBuyPackageClick}
+          />
         ))}
       </PackagesCardContainerInListView>
 
-      <Box sx={{ display: "flex", justifyContent: "center", mt: 2 }}>
+      {/* Explore more */}
+      <Box
+        sx={{
+          display: "flex",
+          justifyContent: "center",
+          mt: 2,
+        }}
+      >
         <OutlinedButton
           onClick={scrollToExploreMore}
           sx={{

@@ -5,13 +5,28 @@ import PackagesSection from "@/components/packages-section";
 import MoreDealsPackagesSection from "@/components/packages-section/moreDeals";
 import AlreadyHaveCredentialsSection from "@/components/already-have-credentials";
 import ReviewSection from "@/components/review-section";
+import { useState } from "react";
 
 const index = () => {
+  const [isBuyPackageOpen, setIsBuyPackageOpen] = useState(false);
+
+  // Buy Package Modal handlers
+  const handleOpenBuyPackage = () => {
+    setIsBuyPackageOpen(true);
+  };
+
+  const handleCloseBuyPackage = () => {
+    setIsBuyPackageOpen(false);
+  };
   return (
-    <DefaultLayout>
+    <DefaultLayout
+      isBuyPackageOpen={isBuyPackageOpen}
+      handleCloseBuyPackage={handleCloseBuyPackage}
+      handleOpenBuyPackage={handleOpenBuyPackage}
+    >
       <CantReconnect />
       <OfferBanner />
-      <PackagesSection />
+      <PackagesSection onBuyPackageClick={handleOpenBuyPackage} />
       <AlreadyHaveCredentialsSection />
       <MoreDealsPackagesSection />
       <ReviewSection />

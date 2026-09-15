@@ -1,4 +1,4 @@
-import { Button, styled } from "@mui/material";
+import { Box, Button, styled } from "@mui/material";
 
 export const OutlinedButton = styled(Button)(({ theme }) => ({
   display: "flex",
@@ -57,3 +57,42 @@ export const ColumnDisplay = styled("div")({
   display: "flex",
   flexDirection: "column",
 });
+
+// Modal Wrapper
+export const ModalWrapper = styled(Box)(({ theme }) => ({
+  position: "relative",
+  width: "100%",
+  maxWidth: "450px",
+  maxHeight: "92vh",
+  boxSizing: "border-box",
+  margin: "0 auto",
+
+  backgroundColor: theme.colors.background,
+  color: theme.colors.textColor,
+
+  border: `1px solid ${theme.colors.primary}50`,
+
+  borderBottom: "none",
+  borderRadius: "22px 22px 0 0",
+
+  padding: "24px 22px 28px",
+
+  boxShadow: "0 -10px 40px rgba(0, 0, 0, 0.25)",
+
+  // Scroll but hide scrollbar
+  overflowY: "auto",
+  scrollbarWidth: "none",
+
+  "&::-webkit-scrollbar": {
+    display: "none",
+  },
+}));
+
+// Modal Drag handle
+export const ModalDragHandle = styled(Box)(({ theme }) => ({
+  width: "36px",
+  height: "4px",
+  borderRadius: "10px",
+  backgroundColor: theme.colors.textColor + "50",
+  margin: "0 auto 26px",
+}));

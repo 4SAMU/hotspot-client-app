@@ -9,6 +9,7 @@ import { Box, styled } from "@mui/material";
 
 import CloseIcon from "@mui/icons-material/Close";
 import PhoneOutlinedIcon from "@mui/icons-material/PhoneOutlined";
+import { ModalDragHandle, ModalWrapper } from "@/styles/common-styles";
 
 interface HowItWorksModalProps {
   onClose: () => void;
@@ -42,7 +43,7 @@ const HowItWorksModal: React.FC<HowItWorksModalProps> = ({
     >
       <ModalWrapper>
         {/* Drag handle */}
-        <DragHandle />
+        <ModalDragHandle />
 
         {/* Header */}
         <ModalHeader>
@@ -153,62 +154,17 @@ const HowItWorksModal: React.FC<HowItWorksModalProps> = ({
 export default HowItWorksModal;
 
 /* ---------------------------------- */
-/* Modal                              */
-/* ---------------------------------- */
-
-const ModalWrapper = styled(Box)(({ theme }) => ({
-  position: "relative",
-  width: "100%",
-  maxWidth: "450px",
-  maxHeight: "92vh",
-  boxSizing: "border-box",
-  margin: "0 auto",
-
-  backgroundColor: theme.colors.background,
-  color: theme.colors.textColor,
-
-  border: `1px solid ${theme.colors.primary}50`,
-
-  borderBottom: "none",
-  borderRadius: "22px 22px 0 0",
-
-  padding: "24px 22px 28px",
-
-  boxShadow: "0 -10px 40px rgba(0, 0, 0, 0.25)",
-
-  // Scroll but hide scrollbar
-  overflowY: "auto",
-  scrollbarWidth: "none",
-
-  "&::-webkit-scrollbar": {
-    display: "none",
-  },
-}));
-
-/* ---------------------------------- */
-/* Drag handle                        */
-/* ---------------------------------- */
-
-const DragHandle = styled(Box)(({ theme }) => ({
-  width: "36px",
-  height: "4px",
-  borderRadius: "10px",
-  backgroundColor: theme.colors.textColor + "50",
-  margin: "0 auto 26px",
-}));
-
-/* ---------------------------------- */
 /* Header                             */
 /* ---------------------------------- */
 
-const ModalHeader = styled(Box)(() => ({
+export const ModalHeader = styled(Box)(() => ({
   display: "flex",
   alignItems: "center",
   justifyContent: "space-between",
   marginBottom: "15px",
 }));
 
-const ModalTitle = styled("h2")(({ theme }) => ({
+export const ModalTitle = styled("h2")(({ theme }) => ({
   fontSize: "16px",
   fontWeight: 700,
   letterSpacing: "-0.3px",
@@ -219,7 +175,7 @@ const ModalTitle = styled("h2")(({ theme }) => ({
   },
 }));
 
-const CloseButton = styled("button")(({ theme }) => ({
+export const CloseButton = styled("button")(({ theme }) => ({
   position: "absolute",
   top: "16px",
   right: "16px",
