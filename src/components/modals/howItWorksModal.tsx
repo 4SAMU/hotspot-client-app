@@ -156,7 +156,7 @@ export default HowItWorksModal;
 /* Modal                              */
 /* ---------------------------------- */
 
-const ModalWrapper = styled(Box)(() => ({
+const ModalWrapper = styled(Box)(({ theme }) => ({
   position: "relative",
   width: "100%",
   maxWidth: "450px",
@@ -164,10 +164,11 @@ const ModalWrapper = styled(Box)(() => ({
   boxSizing: "border-box",
   margin: "0 auto",
 
-  backgroundColor: "#161b21",
-  color: "#e7e9ec",
+  backgroundColor: theme.colors.background,
+  color: theme.colors.textColor,
 
-  border: "1px solid #293139",
+  border: `1px solid ${theme.colors.primary}50`,
+
   borderBottom: "none",
   borderRadius: "22px 22px 0 0",
 
@@ -188,11 +189,11 @@ const ModalWrapper = styled(Box)(() => ({
 /* Drag handle                        */
 /* ---------------------------------- */
 
-const DragHandle = styled(Box)(() => ({
+const DragHandle = styled(Box)(({ theme }) => ({
   width: "36px",
   height: "4px",
   borderRadius: "10px",
-  backgroundColor: "#343c45",
+  backgroundColor: theme.colors.textColor + "50",
   margin: "0 auto 26px",
 }));
 
@@ -207,18 +208,18 @@ const ModalHeader = styled(Box)(() => ({
   marginBottom: "15px",
 }));
 
-const ModalTitle = styled("h2")(() => ({
+const ModalTitle = styled("h2")(({ theme }) => ({
   fontSize: "16px",
   fontWeight: 700,
   letterSpacing: "-0.3px",
-  color: "#e9edf1",
+  color: theme.colors.textColor,
 
   "& span": {
-    color: "#00d084",
+    color: theme.colors.primary,
   },
 }));
 
-const CloseButton = styled("button")(() => ({
+const CloseButton = styled("button")(({ theme }) => ({
   position: "absolute",
   top: "16px",
   right: "16px",
@@ -231,9 +232,9 @@ const CloseButton = styled("button")(() => ({
   justifyContent: "center",
 
   borderRadius: "50%",
-  border: "1px solid #07583f",
-  backgroundColor: "#20282f",
-  color: "#e3e7ea",
+  border: `1px solid ${theme.colors.textColor}50`,
+  backgroundColor: theme.colors.accent + "10",
+  color: theme.colors.primary,
 
   cursor: "pointer",
 
@@ -242,7 +243,7 @@ const CloseButton = styled("button")(() => ({
   },
 
   "&:hover": {
-    backgroundColor: "#28333b",
+    backgroundColor: theme.colors.primary + "20",
   },
 }));
 
@@ -275,7 +276,7 @@ const Step: React.FC<StepProps> = ({ number, title, description }) => {
   );
 };
 
-const StepWrapper = styled(Box)(() => ({
+const StepWrapper = styled(Box)(({ theme }) => ({
   display: "flex",
   alignItems: "flex-start",
   gap: "10px",
@@ -294,15 +295,11 @@ const StepWrapper = styled(Box)(() => ({
     left: "12px",
     width: "1px",
     height: "calc(100% - 30px)",
-    backgroundColor: "#07583f",
-  },
-
-  strong: {
-    fontWeight: "800px",
+    backgroundColor: theme.colors.primary + "50",
   },
 }));
 
-const StepNumber = styled(Box)(() => ({
+const StepNumber = styled(Box)(({ theme }) => ({
   position: "relative",
   zIndex: 1,
 
@@ -315,10 +312,9 @@ const StepNumber = styled(Box)(() => ({
   justifyContent: "center",
 
   borderRadius: "50%",
-  border: "1px solid #006b4a",
-  backgroundColor: "#142b29",
+  border: `1px solid ${theme.colors.primary}`,
 
-  color: "#00d084",
+  color: theme.colors.primary,
   fontSize: "12px",
   fontWeight: 600,
 }));
@@ -328,23 +324,24 @@ const StepContent = styled(Box)(() => ({
   minWidth: 0,
 }));
 
-const StepTitle = styled("h3")(() => ({
+const StepTitle = styled("h3")(({ theme }) => ({
   margin: "0 0 3px",
   fontSize: "13px",
   fontWeight: 700,
-  color: "#e5e9ed",
+  color: theme.colors.textColor,
   fontFamily: '"JetBrains Mono", Monospace',
 }));
 
-const StepDescription = styled("p")(() => ({
+const StepDescription = styled("p")(({ theme }) => ({
   margin: 0,
   fontSize: "12px",
+  lineHeight: "1.4",
   fontFamily: "Dm Sans, sans-serif",
   fontWeight: 400,
-  color: "#d2d7dc",
+  color: theme.colors.textColor,
 
   strong: {
-    color: "#e5e9ed",
+    color: theme.colors.primary,
     fontWeight: 800,
   },
 }));
@@ -353,7 +350,7 @@ const StepDescription = styled("p")(() => ({
 /* Support Card                       */
 /* ---------------------------------- */
 
-const SupportCard = styled(Box)(() => ({
+const SupportCard = styled(Box)(({ theme }) => ({
   display: "flex",
   alignItems: "center",
   justifyContent: "space-between",
@@ -363,30 +360,30 @@ const SupportCard = styled(Box)(() => ({
   padding: "14px 14px",
 
   borderRadius: "12px",
-  border: "1px solid #12664e",
-  backgroundColor: "#122b29",
+  border: `1px solid ${theme.colors.primary}50`,
+  backgroundColor: theme.colors.primary + "20",
 }));
 
 const SupportInfo = styled(Box)(() => ({
   minWidth: 0,
 }));
 
-const SupportTitle = styled("h3")(() => ({
+const SupportTitle = styled("h3")(({ theme }) => ({
   margin: "0 0 5px",
   fontSize: "13px",
   fontWeight: 700,
-  color: "#e4e9eb",
+  color: theme.colors.textColor,
   fontFamily: '"JetBrains Mono", Monospace',
 }));
 
-const SupportSubtitle = styled("p")(() => ({
+const SupportSubtitle = styled("p")(({ theme }) => ({
   margin: 0,
   fontSize: "11px",
-  color: "#d0d9d8",
+  color: theme.colors.textColor,
   fontFamily: '"JetBrains Mono", Monospace',
 }));
 
-const SupportButton = styled("a")(() => ({
+const SupportButton = styled("a")(({ theme }) => ({
   display: "flex",
   alignItems: "center",
   gap: "5px",
@@ -395,10 +392,10 @@ const SupportButton = styled("a")(() => ({
 
   padding: "9px 12px",
   borderRadius: "8px",
-  border: "1px solid #12664e",
+  border: `1px solid ${theme.colors.primary}`,
 
-  backgroundColor: "#122b29",
-  color: "#00d084",
+  backgroundColor: theme.colors.primary + "20",
+  color: theme.colors.primary,
 
   fontSize: "12px",
   fontWeight: 700,
@@ -409,6 +406,6 @@ const SupportButton = styled("a")(() => ({
   },
 
   "&:hover": {
-    backgroundColor: "#1a3b35",
+    backgroundColor: theme.colors.primary + "30",
   },
 }));
