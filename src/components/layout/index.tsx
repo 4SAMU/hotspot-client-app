@@ -31,6 +31,7 @@ const DefaultLayout: React.FC<DefaultLayoutProps> = ({ children }) => {
       <HowItWorksModal
         open={isHowItWorksOpen}
         onClose={handleCloseHowItWorks}
+        onOpen={handleOpenHowItWorks}
       />
     </MainWrapper>
   );

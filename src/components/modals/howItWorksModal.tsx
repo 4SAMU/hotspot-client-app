@@ -27,11 +27,8 @@ const HowItWorksModal: React.FC<HowItWorksModalProps> = ({
       open={open}
       onClose={onClose}
       onOpen={onOpen}
-      disableSwipeToOpen={true}
-      disableBackdropTransition={false}
-      ModalProps={{
-        keepMounted: true,
-      }}
+      disableSwipeToOpen
+      disableScrollLock // Prevent parent body scroll lock when modal is open
       slotProps={{
         paper: {
           sx: {
@@ -53,7 +50,11 @@ const HowItWorksModal: React.FC<HowItWorksModalProps> = ({
             How it <span>works</span>
           </ModalTitle>
 
-          <CloseButton onClick={onClose} aria-label="Close how it works">
+          <CloseButton
+            onClick={onClose}
+            aria-label="Close how it works"
+            title="Close"
+          >
             <CloseIcon />
           </CloseButton>
         </ModalHeader>
@@ -65,7 +66,7 @@ const HowItWorksModal: React.FC<HowItWorksModalProps> = ({
             title="Pick a package"
             description={
               <>
-                Choose how long you need internet — 2 hr, 6 hrs, a full day, or
+                Choose how long you need internet — 2 hr, 8 hrs, a full day, or
                 longer.
               </>
             }
@@ -76,7 +77,8 @@ const HowItWorksModal: React.FC<HowItWorksModalProps> = ({
             title="Tap Buy & enter your M-Pesa number"
             description={
               <>
-                Type your Safaricom number. Make sure M-Pesa has enough balance.
+                Type your <strong>Safaricom</strong> or <strong>Airtel</strong>{" "}
+                number. Make sure M-Pesa/Airtel Money has enough balance.
               </>
             }
           />
@@ -134,7 +136,11 @@ const HowItWorksModal: React.FC<HowItWorksModalProps> = ({
             <SupportSubtitle>Available daily · Fast response</SupportSubtitle>
           </SupportInfo>
 
-          <SupportButton href="tel:0754811158">
+          <SupportButton
+            href="tel:0754811158"
+            aria-label="Call support"
+            title="Call support"
+          >
             <PhoneOutlinedIcon />
             0754811158
           </SupportButton>
@@ -151,12 +157,11 @@ export default HowItWorksModal;
 /* ---------------------------------- */
 
 const ModalWrapper = styled(Box)(() => ({
+  position: "relative",
   width: "100%",
-  maxWidth: "480px",
+  maxWidth: "450px",
   maxHeight: "92vh",
-  overflowY: "auto",
   boxSizing: "border-box",
-
   margin: "0 auto",
 
   backgroundColor: "#161b21",
@@ -169,6 +174,14 @@ const ModalWrapper = styled(Box)(() => ({
   padding: "24px 22px 28px",
 
   boxShadow: "0 -10px 40px rgba(0, 0, 0, 0.25)",
+
+  // Scroll but hide scrollbar
+  overflowY: "auto",
+  scrollbarWidth: "none",
+
+  "&::-webkit-scrollbar": {
+    display: "none",
+  },
 }));
 
 /* ---------------------------------- */
@@ -191,13 +204,11 @@ const ModalHeader = styled(Box)(() => ({
   display: "flex",
   alignItems: "center",
   justifyContent: "space-between",
-  gap: "16px",
-  marginBottom: "18px",
+  marginBottom: "15px",
 }));
 
 const ModalTitle = styled("h2")(() => ({
-  margin: 0,
-  fontSize: "17px",
+  fontSize: "16px",
   fontWeight: 700,
   letterSpacing: "-0.3px",
   color: "#e9edf1",
@@ -208,9 +219,12 @@ const ModalTitle = styled("h2")(() => ({
 }));
 
 const CloseButton = styled("button")(() => ({
-  width: "44px",
-  height: "44px",
-  minWidth: "44px",
+  position: "absolute",
+  top: "16px",
+  right: "16px",
+  width: "40px",
+  height: "40px",
+  minWidth: "40px",
 
   display: "flex",
   alignItems: "center",
@@ -264,12 +278,12 @@ const Step: React.FC<StepProps> = ({ number, title, description }) => {
 const StepWrapper = styled(Box)(() => ({
   display: "flex",
   alignItems: "flex-start",
-  gap: "16px",
+  gap: "10px",
   position: "relative",
-  paddingBottom: "20px",
+  paddingBottom: "10px",
 
   "&:last-child": {
-    paddingBottom: "8px",
+    paddingBottom: "5px",
   },
 
   // Vertical connector line
@@ -277,10 +291,14 @@ const StepWrapper = styled(Box)(() => ({
     content: '""',
     position: "absolute",
     top: "30px",
-    left: "14px",
+    left: "12px",
     width: "1px",
     height: "calc(100% - 30px)",
     backgroundColor: "#07583f",
+  },
+
+  strong: {
+    fontWeight: "800px",
   },
 }));
 
@@ -288,9 +306,9 @@ const StepNumber = styled(Box)(() => ({
   position: "relative",
   zIndex: 1,
 
-  width: "28px",
-  height: "28px",
-  minWidth: "28px",
+  width: "24px",
+  height: "24px",
+  minWidth: "24px",
 
   display: "flex",
   alignItems: "center",
@@ -308,27 +326,26 @@ const StepNumber = styled(Box)(() => ({
 const StepContent = styled(Box)(() => ({
   flex: 1,
   minWidth: 0,
-  paddingTop: "1px",
 }));
 
 const StepTitle = styled("h3")(() => ({
   margin: "0 0 3px",
-  fontSize: "14px",
-  lineHeight: 1.5,
+  fontSize: "13px",
   fontWeight: 700,
   color: "#e5e9ed",
+  fontFamily: '"JetBrains Mono", Monospace',
 }));
 
 const StepDescription = styled("p")(() => ({
   margin: 0,
-  fontSize: "13px",
-  lineHeight: 1.5,
+  fontSize: "12px",
+  fontFamily: "Dm Sans, sans-serif",
   fontWeight: 400,
   color: "#d2d7dc",
 
-  "& strong": {
+  strong: {
     color: "#e5e9ed",
-    fontWeight: 700,
+    fontWeight: 800,
   },
 }));
 
@@ -356,15 +373,17 @@ const SupportInfo = styled(Box)(() => ({
 
 const SupportTitle = styled("h3")(() => ({
   margin: "0 0 5px",
-  fontSize: "14px",
+  fontSize: "13px",
   fontWeight: 700,
   color: "#e4e9eb",
+  fontFamily: '"JetBrains Mono", Monospace',
 }));
 
 const SupportSubtitle = styled("p")(() => ({
   margin: 0,
   fontSize: "11px",
   color: "#d0d9d8",
+  fontFamily: '"JetBrains Mono", Monospace',
 }));
 
 const SupportButton = styled("a")(() => ({
