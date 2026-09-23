@@ -1,4 +1,4 @@
-import { Box, Button, styled } from "@mui/material";
+import { Box, Button, keyframes, styled } from "@mui/material";
 
 export const OutlinedButton = styled(Button)(({ theme }) => ({
   display: "flex",
@@ -244,5 +244,95 @@ export const PaymentInput = styled(Box)(({ theme }) => ({
       cursor: "not-allowed",
       opacity: 0.6,
     },
+  },
+}));
+
+interface StatusBoxProps {
+  status?: "success" | "error" | "info";
+}
+
+//Status box
+export const StatusBox = styled(Box)<StatusBoxProps>(({ theme, status }) => ({
+  display: "flex",
+  alignItems: "center",
+  justifyContent: "center",
+  gap: "10px",
+  marginTop: "10px",
+  padding: "10px",
+
+  borderRadius: "8px",
+  backgroundColor:
+    status === "success"
+      ? theme.colors.success + "50"
+      : status === "error"
+        ? theme.colors.error + "50"
+        : theme.colors.info + "50",
+
+  ".status_text": {
+    fontWeight: "600",
+    fontFamily: '"JetBrains Mono", monospace',
+    color:
+      status === "success"
+        ? theme.colors.success
+        : status === "error"
+          ? theme.colors.error
+          : theme.colors.info,
+    left: "0px",
+    width: "100%",
+    fontSize: "12px",
+  },
+}));
+
+//dots animation
+// Define keyframe animation for loading dots
+export const dotsAnimation = keyframes`
+  0% {
+    content: '.';
+  }
+  33% {
+    content: '..';
+  }
+  66% {
+    content: '...';
+  }
+  100% {
+    content: '.';
+  }
+`;
+
+export const Dots = styled("span")<StatusBoxProps>(({ theme, status }) => ({
+  // position: "absolute",
+  // display: "inline-block",
+  // left: "calc(100% + 8px)",
+  // top: "-5px",
+  fontFamily: "monospace",
+  fontSize: "15px",
+  fontWeight: "bold",
+  "&::after": {
+    content: '"."',
+    animation: `${dotsAnimation} 1.5s steps(3, end) infinite`,
+    color:
+      status === "success"
+        ? theme.colors.success
+        : status === "error"
+          ? theme.colors.error
+          : theme.colors.info,
+  },
+}));
+
+//spiner loader
+export const Spinner = styled("div")(({ theme }) => ({
+  display: "flex",
+  marginLeft: "8px",
+  width: "22px",
+  height: "22px",
+  border: `2px solid ${theme.colors.textColor}50`,
+  borderTop: `2px solid ${theme.colors.textColor}`,
+  borderRadius: "50%",
+  animation: "spin 1s linear infinite",
+
+  "@keyframes spin": {
+    "0%": { transform: "rotate(0deg)" },
+    "100%": { transform: "rotate(360deg)" },
   },
 }));

@@ -19,6 +19,7 @@ export interface ThemeColors {
   success: string;
   warning: string;
   error: string;
+  info: string;
 
   accent: string;
 

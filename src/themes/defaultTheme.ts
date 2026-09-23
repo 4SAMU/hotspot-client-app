@@ -14,6 +14,7 @@ export const defaultTheme: ThemeConfig = {
     success: "#22C55E",
     warning: "#F59E0B",
     error: "#EF4444",
+    info: "#3B82F6",
 
     accent: "#0bd7f1",
 

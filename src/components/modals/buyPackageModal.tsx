@@ -3,12 +3,15 @@ import { SwipeableDrawer } from "@mui/material";
 import CloseIcon from "@mui/icons-material/Close";
 
 import {
+  Dots,
   FilledButton,
   ModalDragHandle,
   ModalWrapper,
   PaymentInput,
   PaymentModeRadioButton,
   RowDisplay,
+  Spinner,
+  StatusBox,
 } from "@/styles/common-styles";
 
 import { CloseButton, ModalHeader, ModalTitle } from "./howItWorksModal";
@@ -134,10 +137,15 @@ const BuyPackageModal: React.FC<BuyPackageModalProps> = ({
           }}
           disabled={!paymentMode}
         >
-          Pay Kes 10
+          Pay Kes 10 <Spinner />
         </FilledButton>
 
         {/*status texts here*/}
+        <StatusBox status="info">
+          <span className="status_text">
+            Sending prompt to your phone <Dots status="info" />
+          </span>
+        </StatusBox>
       </ModalWrapper>
     </SwipeableDrawer>
   );
