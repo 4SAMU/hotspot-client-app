@@ -107,73 +107,67 @@ export const ModalDragHandle = styled(Box)(({ theme }) => ({
   backgroundColor: theme.colors.textColor + "50",
   margin: "0 auto 26px",
 }));
+
+interface PaymentModeRadioButtonProps {
+  airtel?: boolean;
+  mpesa?: boolean;
+  selected: boolean;
+}
+
 export const PaymentModeRadioButton = styled("label", {
-  shouldForwardProp: (prop) => prop !== "selected",
-})<{ selected?: boolean }>(({ theme, selected }) => ({
-  display: "flex",
-  alignItems: "center",
-  gap: "10px",
-  height: "35px",
-  minWidth: "100px",
-  width: "120px",
+  shouldForwardProp: (prop) =>
+    prop !== "selected" && prop !== "airtel" && prop !== "mpesa",
+})<PaymentModeRadioButtonProps>(({ airtel, mpesa, selected }) => {
+  const providerColor = mpesa ? "#24a549" : airtel ? "#ed1b24" : "#00A859";
 
-  padding: "10px 16px",
-
-  borderRadius: "6px",
-  border: `1px solid ${selected ? theme.colors.primary : theme.colors.primary + "80"}`,
-
-  cursor: "pointer",
-
-  transition: "all 0.2s ease-in-out",
-
-  "&:hover": {
-    borderColor: theme.colors.primary,
-  },
-
-  // Hide the actual radio input
-  "& input": {
-    position: "absolute",
-    opacity: 0,
-    pointerEvents: "none",
-  },
-
-  // Custom radio button
-  "& .radio": {
-    width: "18px",
-    height: "18px",
-    minWidth: "18px",
-    borderRadius: "50%",
-
-    border: `1px solid ${
-      selected ? theme.colors.primary : theme.colors.primary + "80"
-    }`,
-
+  return {
     display: "flex",
     alignItems: "center",
-    justifyContent: "center",
+    gap: "10px",
+    height: "35px",
+    minWidth: "100px",
+    width: "120px",
+    backgroundColor: selected ? providerColor + "20" : "transparent",
+    padding: "10px 16px",
+    borderRadius: "6px",
+    border: `1px solid ${providerColor}`,
+    cursor: "pointer",
+    transition: "all 0.2s ease-in-out",
 
-    "&::after": {
-      content: '""',
-
-      width: "8px",
-      height: "8px",
-      borderRadius: "50%",
-
-      backgroundColor: theme.colors.primary,
-
-      transform: selected ? "scale(1)" : "scale(0)",
-
-      transition: "transform 0.15s ease-in-out",
+    "& input": {
+      position: "absolute",
+      opacity: 0,
+      pointerEvents: "none",
     },
-  },
 
-  "& img": {
-    width: "60%",
-    // height: "100%",
-    objectFit: "contain",
-    display: "block",
-  },
-}));
+    "& .radio": {
+      display: "flex",
+      alignItems: "center",
+      justifyContent: "center",
+      width: "18px",
+      height: "18px",
+      minWidth: "18px",
+      borderRadius: "50%",
+      border: `1px solid ${providerColor}`,
+
+      "&::after": {
+        content: '""',
+        width: "8px",
+        height: "8px",
+        borderRadius: "50%",
+        backgroundColor: providerColor,
+        transform: selected ? "scale(1)" : "scale(0)",
+        transition: "transform 0.15s ease-in-out",
+      },
+    },
+
+    "& img": {
+      width: "60%",
+      objectFit: "contain",
+      display: "block",
+    },
+  };
+});
 
 export const PaymentInput = styled(Box)(({ theme }) => ({
   display: "flex",
@@ -301,10 +295,6 @@ export const dotsAnimation = keyframes`
 `;
 
 export const Dots = styled("span")<StatusBoxProps>(({ theme, status }) => ({
-  // position: "absolute",
-  // display: "inline-block",
-  // left: "calc(100% + 8px)",
-  // top: "-5px",
   fontFamily: "monospace",
   fontSize: "15px",
   fontWeight: "bold",
@@ -326,8 +316,8 @@ export const Spinner = styled("div")(({ theme }) => ({
   marginLeft: "8px",
   width: "22px",
   height: "22px",
-  border: `2px solid ${theme.colors.textColor}50`,
-  borderTop: `2px solid ${theme.colors.textColor}`,
+  border: `2px solid ${theme.colors.buttonTextColor}50`,
+  borderTop: `2px solid ${theme.colors.buttonTextColor}`,
   borderRadius: "50%",
   animation: "spin 1s linear infinite",
 

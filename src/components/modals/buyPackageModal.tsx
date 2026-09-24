@@ -67,7 +67,7 @@ const BuyPackageModal: React.FC<BuyPackageModalProps> = ({
         </ModalHeader>
 
         <RowDisplay sx={{ gap: "10px", marginBottom: "20px" }}>
-          <PaymentModeRadioButton selected={paymentMode === "mpesa"}>
+          <PaymentModeRadioButton mpesa selected={paymentMode === "mpesa"}>
             <input
               type="radio"
               name="paymentMode"
@@ -82,7 +82,7 @@ const BuyPackageModal: React.FC<BuyPackageModalProps> = ({
             <img src="/assets/mpesa_logo.svg" alt="M-Pesa" height={32} />
           </PaymentModeRadioButton>
 
-          <PaymentModeRadioButton selected={paymentMode === "airtel"}>
+          <PaymentModeRadioButton airtel selected={paymentMode === "airtel"}>
             <input
               type="radio"
               name="paymentMode"
