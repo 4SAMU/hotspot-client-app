@@ -24,23 +24,9 @@ import { useTheme } from "@/hooks/useTheme";
 import ViewListIcon from "@mui/icons-material/ViewList";
 import ViewGridIcon from "@mui/icons-material/Apps";
 import KeyboardArrowRightIcon from "@mui/icons-material/KeyboardArrowRight";
+import { PackageProps, usePayment } from "@/context/PaymentModalContext";
 
-export interface Package {
-  title: string;
-  price: string;
-  features?: string[];
-  ribbon?: {
-    text?: string;
-    bgColor: string;
-    textColor: string;
-  };
-}
-
-interface PackagesSectionProps {
-  onBuyPackageClick: (pkg: Package) => void;
-}
-
-const packages: Package[] = [
+const packages: PackageProps[] = [
   {
     title: "14 Hours",
     price: "KES 30",
@@ -91,7 +77,7 @@ const packages: Package[] = [
 // -----------------------------------------------------------------------------
 
 interface PackageFeaturesProps {
-  pkg: Package;
+  pkg: PackageProps;
 }
 
 const PackageFeatures = ({ pkg }: PackageFeaturesProps) => (
@@ -109,7 +95,7 @@ const PackageFeatures = ({ pkg }: PackageFeaturesProps) => (
 );
 
 interface PackagePriceActionProps {
-  pkg: Package;
+  pkg: PackageProps;
   onBuy?: () => void;
 }
 
@@ -128,8 +114,8 @@ const PackagePriceAction = ({ pkg, onBuy }: PackagePriceActionProps) => (
 // -----------------------------------------------------------------------------
 
 interface GridPackageCardProps {
-  pkg: Package;
-  onBuy?: (pkg: Package) => void;
+  pkg: PackageProps;
+  onBuy?: (pkg: PackageProps) => void;
 }
 
 const GridPackageCard = ({ pkg, onBuy }: GridPackageCardProps) => (
@@ -154,8 +140,8 @@ const GridPackageCard = ({ pkg, onBuy }: GridPackageCardProps) => (
 // -----------------------------------------------------------------------------
 
 interface ListPackageCardProps {
-  pkg: Package;
-  onBuy?: (pkg: Package) => void;
+  pkg: PackageProps;
+  onBuy?: (pkg: PackageProps) => void;
 }
 
 const ListPackageCard = ({ pkg, onBuy }: ListPackageCardProps) => (
@@ -182,10 +168,9 @@ const ListPackageCard = ({ pkg, onBuy }: ListPackageCardProps) => (
 // Main section
 // -----------------------------------------------------------------------------
 
-const PackagesSection: React.FC<PackagesSectionProps> = ({
-  onBuyPackageClick,
-}) => {
+const PackagesSection = () => {
   const { theme } = useTheme();
+  const { openPaymentModal } = usePayment();
 
   const [view, setView] = useState<"grid" | "list">("grid");
 
@@ -242,7 +227,7 @@ const PackagesSection: React.FC<PackagesSectionProps> = ({
           <GridPackageCard
             key={pkg.title}
             pkg={pkg}
-            onBuy={onBuyPackageClick}
+            onBuy={() => openPaymentModal(pkg)}
           />
         ))}
       </PackagesCardContainer>
@@ -253,7 +238,7 @@ const PackagesSection: React.FC<PackagesSectionProps> = ({
           <ListPackageCard
             key={pkg.title}
             pkg={pkg}
-            onBuy={onBuyPackageClick}
+            onBuy={() => openPaymentModal(pkg)}
           />
         ))}
       </PackagesCardContainerInListView>

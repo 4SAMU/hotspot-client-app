@@ -7,17 +7,9 @@ import BuyPackageModal from "../modals/buyPackageModal";
 
 interface DefaultLayoutProps {
   children: React.ReactNode;
-  isBuyPackageOpen: boolean;
-  handleCloseBuyPackage: () => void;
-  handleOpenBuyPackage: () => void;
 }
 
-const DefaultLayout: React.FC<DefaultLayoutProps> = ({
-  children,
-  isBuyPackageOpen,
-  handleCloseBuyPackage,
-  handleOpenBuyPackage,
-}) => {
+const DefaultLayout: React.FC<DefaultLayoutProps> = ({ children }) => {
   const [isHowItWorksOpen, setIsHowItWorksOpen] = useState(false);
 
   // How It Works Modal handlers
@@ -32,9 +24,7 @@ const DefaultLayout: React.FC<DefaultLayoutProps> = ({
   return (
     <MainWrapper>
       <HeaderSection onHowItWorks={handleOpenHowItWorks} />
-
       <main>{children}</main>
-
       <Footer />
 
       {/* Modal lives in the main layout */}
@@ -44,11 +34,8 @@ const DefaultLayout: React.FC<DefaultLayoutProps> = ({
         onOpen={handleOpenHowItWorks}
       />
 
-      <BuyPackageModal
-        open={isBuyPackageOpen}
-        onClose={handleCloseBuyPackage}
-        onOpen={handleOpenBuyPackage}
-      />
+      {/* Buy Package Modal, props provided by usePayment context */}
+      <BuyPackageModal />
     </MainWrapper>
   );
 };

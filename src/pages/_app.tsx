@@ -5,6 +5,7 @@ import { NextPage } from "next";
 import type { AppProps } from "next/app";
 import { ReactElement, ReactNode } from "react";
 import "react-alice-carousel/lib/alice-carousel.css";
+import { PaymentProvider } from "@/context/PaymentModalContext";
 
 // Types for page and layout props
 export type NextPageWithLayout<P = object, IP = P> = NextPage<P, IP> & {
@@ -20,7 +21,9 @@ export default function App({ Component, pageProps }: AppPropsWithLayout) {
   return (
     <ThemeProvider>
       <RouterIdentityProvider>
-        {getLayout(<Component {...pageProps} />)}
+        <PaymentProvider>
+          {getLayout(<Component {...pageProps} />)}
+        </PaymentProvider>
       </RouterIdentityProvider>
     </ThemeProvider>
   );

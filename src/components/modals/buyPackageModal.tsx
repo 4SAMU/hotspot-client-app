@@ -15,27 +15,23 @@ import {
 } from "@/styles/common-styles";
 
 import { CloseButton, ModalHeader, ModalTitle } from "./howItWorksModal";
+import { usePayment } from "@/context/PaymentModalContext";
 
-interface BuyPackageModalProps {
-  onClose: () => void;
-  onOpen: () => void;
-  open: boolean;
-}
+const BuyPackageModal = () => {
+  const { selectedPackage, isPaymentModalOpen, closePaymentModal } =
+    usePayment();
 
-const BuyPackageModal: React.FC<BuyPackageModalProps> = ({
-  onClose,
-  onOpen,
-  open,
-}) => {
   const [paymentMode, setPaymentMode] = useState<"mpesa" | "airtel" | null>(
     null,
   );
+
+  console.log("Selected package in modal:", selectedPackage);
   return (
     <SwipeableDrawer
       anchor="bottom"
-      open={open}
-      onClose={onClose}
-      onOpen={onOpen}
+      open={isPaymentModalOpen}
+      onClose={closePaymentModal}
+      onOpen={() => {}}
       disableSwipeToOpen
       disableScrollLock
       slotProps={{
@@ -56,7 +52,7 @@ const BuyPackageModal: React.FC<BuyPackageModalProps> = ({
         {/* Header */}
         <ModalHeader>
           <CloseButton
-            onClick={onClose}
+            onClick={closePaymentModal}
             aria-label="Close buy package"
             title="Close"
           >
