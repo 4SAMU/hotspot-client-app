@@ -8,24 +8,25 @@ import {
   OfferBannerSection,
 } from "./headerStyles";
 import { FilledButton } from "@/styles/common-styles";
+import { PackageProps, usePayment } from "@/context/PaymentModalContext";
 
-const offers = [
+const offers: PackageProps[] = [
   {
-    id: 1,
     title: "3 Days Unlimited",
-    description: "Get 3 Days Unlimited connection at only Kes.120",
+    price: 120,
+    features: ["Get 3 Days Unlimited connection at only Kes.120"],
     image: "https://picsum.photos/seed/moon/600/400",
   },
   {
-    id: 2,
     title: "7 Days Unlimited",
-    description: "Get 7 Days Unlimited connection at only Kes.250",
+    price: 250,
+    features: ["Get 7 Days Unlimited connection at only Kes.250"],
     image: "https://picsum.photos/seed/hotel/600/400",
   },
   {
-    id: 3,
     title: "30 Days Unlimited",
-    description: "Get 30 Days Unlimited connection at only Kes.800",
+    price: 800,
+    features: ["Get 30 Days Unlimited connection at only Kes.800"],
     image: "https://picsum.photos/seed/car/600/400",
   },
 ];
@@ -34,9 +35,12 @@ interface OfferCardProps {
   title: string;
   description: string;
   image: string;
+  price: number;
 }
 
-const OfferCard = ({ title, description, image }: OfferCardProps) => {
+const OfferCard = ({ title, description, image, price }: OfferCardProps) => {
+  const { openPaymentModal } = usePayment();
+
   return (
     <OfferBannerCard>
       <Box className="left-side-items">
@@ -44,7 +48,19 @@ const OfferCard = ({ title, description, image }: OfferCardProps) => {
 
         <p className="description">{description}</p>
 
-        <FilledButton sx={{ mt: "6px" }}>Buy Now</FilledButton>
+        <FilledButton
+          sx={{ mt: "6px" }}
+          onClick={() =>
+            openPaymentModal({
+              title,
+              price,
+              features: [description],
+              image,
+            })
+          }
+        >
+          Buy Now
+        </FilledButton>
       </Box>
 
       <Box className="image-section">
@@ -61,12 +77,13 @@ const OfferBanner = () => {
 
   const items = useMemo(
     () =>
-      offers.map((offer) => (
+      offers.map((offer, index) => (
         <OfferCard
-          key={offer.id}
+          key={index}
           title={offer.title}
-          description={offer.description}
-          image={offer.image}
+          description={offer.features?.[0] ?? ""}
+          image={offer.image ?? ""}
+          price={offer.price}
         />
       )),
     [],

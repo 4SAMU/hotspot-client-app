@@ -75,7 +75,7 @@ export const ModalWrapper = styled(Box)(({ theme }) => ({
   backgroundColor: theme.colors.background,
   color: theme.colors.textColor,
 
-  border: `1px solid ${theme.colors.primary}50`,
+  border: `1px solid ${theme.colors.textColor}15`,
 
   borderBottom: "none",
   borderRadius: "22px 22px 0 0",
@@ -177,7 +177,7 @@ export const PaymentInput = styled(Box)(({ theme }) => ({
   marginTop: "10px",
   overflow: "hidden",
   backgroundColor: theme.colors.background,
-  border: `1px solid ${theme.colors.primary}80`,
+  border: `1px solid ${theme.colors.primary}35`,
 
   borderRadius: "8px",
   transition: "border-color 0.2s ease, box-shadow 0.2s ease",
@@ -199,9 +199,11 @@ export const PaymentInput = styled(Box)(({ theme }) => ({
     padding: "0 10px",
 
     color: theme.colors.textColor,
-    borderRight: `1px solid ${theme.colors.primary}80`,
+    borderRight: `1px solid ${theme.colors.primary}10`,
+    background: `${theme.colors.primary}60`,
 
     fontSize: "13px",
+    fontWeight: "600",
     fontFamily: '"JetBrains Mono", monospace',
     whiteSpace: "nowrap",
 
@@ -224,7 +226,7 @@ export const PaymentInput = styled(Box)(({ theme }) => ({
 
     border: "none",
     outline: "none",
-    backgroundColor: "transparent",
+    backgroundColor: `${theme.colors.secondary}`,
     color: theme.colors.textColor,
     fontSize: "14px",
     fontFamily: '"JetBrains Mono", monospace',

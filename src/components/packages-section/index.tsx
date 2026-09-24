@@ -29,7 +29,7 @@ import { PackageProps, usePayment } from "@/context/PaymentModalContext";
 const packages: PackageProps[] = [
   {
     title: "14 Hours",
-    price: "KES 30",
+    price: 30,
     features: ["Enjoy 14hrs of unlimited access"],
     ribbon: {
       text: "New Offer",
@@ -39,7 +39,7 @@ const packages: PackageProps[] = [
   },
   {
     title: "24 Hours",
-    price: "KES 40",
+    price: 40,
     features: [
       "Enjoy 24hrs of unlimited access",
       "Connect up to 2 devices simultaneously",
@@ -52,17 +52,17 @@ const packages: PackageProps[] = [
   },
   {
     title: "2 Hours",
-    price: "KES 10",
+    price: 10,
     features: ["Enjoy 2hrs of unlimited access with a 30mins bonus"],
   },
   {
     title: "10 Hours",
-    price: "KES 25",
+    price: 25,
     features: ["Enjoy 10hrs of unlimited access"],
   },
   {
     title: "8 Hours",
-    price: "KES 20",
+    price: 20,
     features: ["Enjoy 8hrs of unlimited access"],
     ribbon: {
       text: "Popular",
@@ -101,7 +101,7 @@ interface PackagePriceActionProps {
 
 const PackagePriceAction = ({ pkg, onBuy }: PackagePriceActionProps) => (
   <>
-    <span className="price">{pkg.price}</span>
+    <span className="price">Ksh.{pkg.price}</span>
 
     <FilledButton className="pkg_button" onClick={onBuy}>
       Buy

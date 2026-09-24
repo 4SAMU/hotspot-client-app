@@ -2,13 +2,14 @@ import React, { createContext, useContext, useState } from "react";
 
 export interface PackageProps {
   title: string;
-  price: string;
+  price: number;
   features?: string[];
   ribbon?: {
     text?: string;
     bgColor: string;
     textColor: string;
   };
+  image?: string;
 }
 
 interface PaymentContextType {

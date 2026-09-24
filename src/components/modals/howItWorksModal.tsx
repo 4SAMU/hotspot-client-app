@@ -157,18 +157,33 @@ export default HowItWorksModal;
 /* Header                             */
 /* ---------------------------------- */
 
-export const ModalHeader = styled(Box)(() => ({
+export const ModalHeader = styled(Box)(({ theme }) => ({
   display: "flex",
-  alignItems: "center",
-  justifyContent: "space-between",
-  marginBottom: "15px",
+  flexDirection: "column",
+
+  ".subHeader": {
+    display: "flex",
+    flexDirection: "column",
+    fontSize: "16px",
+    color: `${theme.colors.textColor}`,
+    fontFamily: '"JetBrains Mono", Monospace',
+    marginBottom: "10px",
+
+    span: {
+      color: `${theme.colors.textColor}88`,
+      fontSize: "13px",
+      fontFamily: "Dm Sans, sans-serif !important",
+    },
+  },
 }));
 
 export const ModalTitle = styled("h2")(({ theme }) => ({
-  fontSize: "16px",
-  fontWeight: 700,
-  letterSpacing: "-0.3px",
+  display: "flex",
+  fontSize: "17px",
+  gap: "10px",
+  fontWeight: 800,
   color: theme.colors.textColor,
+  marginBottom: "10px",
 
   "& span": {
     color: theme.colors.primary,
@@ -188,14 +203,14 @@ export const CloseButton = styled("button")(({ theme }) => ({
   justifyContent: "center",
 
   borderRadius: "50%",
-  border: `1px solid ${theme.colors.textColor}50`,
-  backgroundColor: theme.colors.accent + "10",
+  border: `1px solid ${theme.colors.primary}50`,
+  backgroundColor: theme.colors.primary + "10",
   color: theme.colors.primary,
 
   cursor: "pointer",
 
   "& svg": {
-    fontSize: "19px",
+    fontSize: "22px",
   },
 
   "&:hover": {
@@ -292,7 +307,7 @@ const StepDescription = styled("p")(({ theme }) => ({
   margin: 0,
   fontSize: "12px",
   lineHeight: "1.4",
-  fontFamily: "Dm Sans, sans-serif",
+  fontFamily: "Dm Sans, sans-serif !important",
   fontWeight: 400,
   color: theme.colors.textColor,
 
