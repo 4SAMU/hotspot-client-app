@@ -12,8 +12,8 @@ const index = () => {
       <CantReconnect />
       <OfferBanner />
       <PackagesSection />
-      <AlreadyHaveCredentialsSection />
       <MoreDealsPackagesSection />
+      <AlreadyHaveCredentialsSection />
       <ReviewSection />
     </DefaultLayout>
   );

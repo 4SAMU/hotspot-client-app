@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Box } from "@mui/material";
+import { Box, Divider } from "@mui/material";
 
 import {
   PackageCard,
@@ -220,7 +220,6 @@ const PackagesSection = () => {
           </ToggleOption>
         </ToggleContainer>
       </Box>
-
       {/* Grid */}
       <PackagesCardContainer className={view}>
         {packages.map((pkg) => (
@@ -231,7 +230,6 @@ const PackagesSection = () => {
           />
         ))}
       </PackagesCardContainer>
-
       {/* List */}
       <PackagesCardContainerInListView className={view}>
         {packages.map((pkg) => (
@@ -242,27 +240,6 @@ const PackagesSection = () => {
           />
         ))}
       </PackagesCardContainerInListView>
-
-      {/* Explore more */}
-      <Box
-        sx={{
-          display: "flex",
-          justifyContent: "center",
-          mt: 2,
-        }}
-      >
-        <OutlinedButton
-          onClick={scrollToExploreMore}
-          sx={{
-            border: `1px solid ${theme.colors.primary}`,
-            color: theme.colors.primary,
-            height: 36,
-          }}
-        >
-          Explore More
-          <KeyboardArrowRightIcon />
-        </OutlinedButton>
-      </Box>
     </PackagesSectionContainer>
   );
 };

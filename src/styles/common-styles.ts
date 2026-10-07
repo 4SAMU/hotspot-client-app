@@ -9,7 +9,7 @@ export const OutlinedButton = styled(Button)(({ theme }) => ({
   color: theme.colors.accent,
   fontSize: "10.5px",
   fontFamily: '"JetBrains Mono", monospace',
-  fontWeight: "500",
+  fontWeight: 500,
   transition: "0.3s all ease-in-out",
   gap: "5px",
 
@@ -19,6 +19,11 @@ export const OutlinedButton = styled(Button)(({ theme }) => ({
 
   ":hover": {
     fontSize: "10.8px",
+  },
+
+  "&.active": {
+    background: `${theme.colors.accent}50`,
+    fontWeight: 600,
   },
 }));
 
@@ -226,7 +231,7 @@ export const PaymentInput = styled(Box)(({ theme }) => ({
 
     border: "none",
     outline: "none",
-    backgroundColor: `${theme.colors.secondary}`,
+    backgroundColor: "transparent",
     color: theme.colors.textColor,
     fontSize: "14px",
     fontFamily: '"JetBrains Mono", monospace',

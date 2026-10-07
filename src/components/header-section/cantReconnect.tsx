@@ -4,7 +4,7 @@ import Link from "next/link";
 
 const CantReconnect = () => {
   const { routerIdentity, loading } = useRouterIdentity();
-
+  // console.log(routerIdentity);
   if (loading) {
     return <>Loading...</>;
   }
@@ -15,7 +15,10 @@ const CantReconnect = () => {
         <li>
           Can't reconnect? Visit{" "}
           <strong>
-            <Link className="my-account-link" href="/support">
+            <Link
+              className="my-account-link"
+              href={`/my-account/?router=${routerIdentity?.identity}`}
+            >
               My Account
             </Link>
           </strong>{" "}

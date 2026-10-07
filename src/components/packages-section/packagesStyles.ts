@@ -50,8 +50,9 @@ const packageTypographyCompact = {
 export const PackagesSectionContainer = styled("div")(({ theme }) => ({
   display: "flex",
   flexDirection: "column",
-  marginTop: "25px",
+  marginTop: "30px",
   width: "100%",
+  color: theme.colors.textColor,
 
   ".top-section": {
     display: "flex",

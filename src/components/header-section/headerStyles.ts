@@ -71,6 +71,7 @@ export const TagsContainer = styled("div")(({ theme }) => ({
 export const HeaderTitle = styled("div")(({ theme }) => ({
   display: "flex",
   flexDirection: "column",
+  cursor: "pointer",
 
   h1: {
     fontSize: "1.5rem",

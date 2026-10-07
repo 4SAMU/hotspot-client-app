@@ -75,11 +75,12 @@ const HowItWorksModal: React.FC<HowItWorksModalProps> = ({
 
           <Step
             number="2"
-            title="Tap Buy & enter your M-Pesa number"
+            title="Tap Buy & enter your M-Pesa or Airtel number"
             description={
               <>
-                Type your <strong>Safaricom</strong> or <strong>Airtel</strong>{" "}
-                number. Make sure M-Pesa/Airtel Money has enough balance.
+                Type your <strong className="safaricom">Safaricom</strong> or{" "}
+                <strong className="airtel">Airtel</strong> number. Make sure
+                M-Pesa/Airtel Money has enough balance.
               </>
             }
           />
@@ -297,7 +298,7 @@ const StepContent = styled(Box)(() => ({
 
 const StepTitle = styled("h3")(({ theme }) => ({
   margin: "0 0 3px",
-  fontSize: "13px",
+  fontSize: "14px",
   fontWeight: 700,
   color: theme.colors.textColor,
   fontFamily: '"JetBrains Mono", Monospace',
@@ -305,15 +306,20 @@ const StepTitle = styled("h3")(({ theme }) => ({
 
 const StepDescription = styled("p")(({ theme }) => ({
   margin: 0,
-  fontSize: "12px",
-  lineHeight: "1.4",
+  lineHeight: "1.3",
   fontFamily: "Dm Sans, sans-serif !important",
-  fontWeight: 400,
+  fontWeight: 300,
   color: theme.colors.textColor,
 
   strong: {
     color: theme.colors.primary,
     fontWeight: 800,
+  },
+  ".airtel": {
+    color: "#ec1a23",
+  },
+  ".safaricom": {
+    color: "#46bd61",
   },
 }));
 

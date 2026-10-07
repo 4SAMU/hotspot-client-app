@@ -4,6 +4,7 @@ import {
   PackagesCardContainer,
   PackagesSectionContainer,
 } from "./packagesStyles";
+import { useTheme } from "@/hooks/useTheme";
 
 export interface Package {
   title: string;
@@ -59,9 +60,17 @@ const packages: Package[] = [
 ];
 
 const MoreDealsPackagesSection = () => {
+  const { theme } = useTheme();
   return (
-    <PackagesSectionContainer id="explore-more-deals">
-      <h4>Explore More Wifi Deals 🔥</h4>
+    <PackagesSectionContainer
+      id="explore-more-deals"
+      sx={{
+        borderTop: "1px solid",
+        borderColor: theme.colors.textColor + "40",
+        paddingTop: "20px",
+      }}
+    >
+      <h4>Stay connected for Long 🔥</h4>
 
       <PackagesCardContainer>
         {packages.map((pkg) => (
