@@ -226,7 +226,7 @@ export const CloseButton = styled("button")(({ theme }) => ({
 const StepsContainer = styled(Box)(() => ({
   display: "flex",
   flexDirection: "column",
-  gap: "0px",
+  gap: "5px",
 }));
 
 interface StepProps {
@@ -306,9 +306,10 @@ const StepTitle = styled("h3")(({ theme }) => ({
 
 const StepDescription = styled("p")(({ theme }) => ({
   margin: 0,
-  lineHeight: "1.3",
+  lineHeight: "20px",
   fontFamily: "Dm Sans, sans-serif !important",
   fontWeight: 300,
+  fontSize: "12px !important",
   color: theme.colors.textColor,
 
   strong: {
@@ -355,7 +356,7 @@ const SupportTitle = styled("h3")(({ theme }) => ({
 
 const SupportSubtitle = styled("p")(({ theme }) => ({
   margin: 0,
-  fontSize: "11px",
+  fontSize: "10px !important",
   color: theme.colors.textColor,
   fontFamily: '"JetBrains Mono", Monospace',
 }));
