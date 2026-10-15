@@ -58,6 +58,32 @@ export const FilledButton = styled(Button)(({ theme }) => ({
   },
 }));
 
+export const TextButton = styled(Button)(({ theme }) => ({
+  textTransform: "none",
+  background: "transparent",
+  color: theme.colors.primary,
+  fontSize: "12px",
+  fontFamily: '"JetBrains Mono", monospace',
+  fontWeight: 500,
+  transition: "0.3s all ease-in-out",
+  minWidth: "max-content !important",
+
+  "& svg": {
+    fontSize: 22,
+  },
+
+  ":hover": {
+    fontSize: "12.5px",
+    background: `${theme.colors.primary}20`,
+    borderRadius: "4px",
+  },
+
+  "&.active": {
+    background: `${theme.colors.primary}50`,
+    fontWeight: 600,
+  },
+}));
+
 export const RowDisplay = styled("div")({
   display: "flex",
   flexDirection: "row",

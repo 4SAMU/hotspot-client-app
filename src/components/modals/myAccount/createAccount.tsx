@@ -1,5 +1,5 @@
 import { useTheme } from "@/hooks/useTheme";
-import { FilledButton } from "@/styles/common-styles";
+import { FilledButton, TextButton } from "@/styles/common-styles";
 import { Modal, styled } from "@mui/material";
 import React from "react";
 
@@ -24,9 +24,7 @@ const CreateAccountModal: React.FC<CreateAccountModalProps> = ({
         <h2 id="create-account-title">Create An Account</h2>
         <p id="create-account-description">
           Already have an account?{" "}
-          <button className="login" onClick={onClose}>
-            Login
-          </button>
+          <TextButton className="login">Login</TextButton>
         </p>
         <br />
         <label htmlFor="Phone Number">Phone Number</label>
@@ -89,13 +87,9 @@ export const AccountContainer = styled("div")(({ theme }) => ({
   p: {
     fontSize: "13px",
   },
-  "button.login": {
-    border: "none",
-    padding: 0,
-    background: "transparent !important",
-    cursor: "pointer",
+  ".login": {
+    padding: "0 10px 0 0 !important",
     textDecoration: "underline",
-    color: theme.colors.primary,
     textUnderlineOffset: "2px",
   },
   label: {
