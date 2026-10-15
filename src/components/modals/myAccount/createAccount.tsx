@@ -3,14 +3,19 @@ import { FilledButton, TextButton } from "@/styles/common-styles";
 import { Modal, styled } from "@mui/material";
 import React from "react";
 
-interface CreateAccountModalProps {
+export interface AccountModalProps {
   open: boolean;
   onClose: () => void;
+}
+
+interface CreateAccountModalProps extends AccountModalProps {
+  handleLoginClick: () => void;
 }
 
 const CreateAccountModal: React.FC<CreateAccountModalProps> = ({
   open,
   onClose,
+  handleLoginClick,
 }) => {
   const { theme } = useTheme();
   return (
@@ -24,14 +29,22 @@ const CreateAccountModal: React.FC<CreateAccountModalProps> = ({
         <h2 id="create-account-title">Create An Account</h2>
         <p id="create-account-description">
           Already have an account?{" "}
-          <TextButton className="login">Login</TextButton>
+          <TextButton
+            className="login"
+            onClick={() => {
+              handleLoginClick();
+              onClose();
+            }}
+          >
+            Login
+          </TextButton>
         </p>
         <br />
         <label htmlFor="Phone Number">Phone Number</label>
-        <input type="text" id="Phone Number" name="Phone Number" />
+        <input type="text" id="Phone Number" name="Phone Number" required />
 
         <label htmlFor="password">password</label>
-        <input type="password" id="password" name="password" />
+        <input type="password" id="password" name="password" required />
 
         <label htmlFor="confirm-password">Confirm Password</label>
         <input type="password" id="confirm-password" name="confirm-password" />
@@ -86,11 +99,13 @@ export const AccountContainer = styled("div")(({ theme }) => ({
 
   p: {
     fontSize: "13px",
+    fontStyle: "italic",
   },
   ".login": {
     padding: "0 10px 0 0 !important",
     textDecoration: "underline",
     textUnderlineOffset: "2px",
+    fontStyle: "italic",
   },
   label: {
     fontSize: "14px",

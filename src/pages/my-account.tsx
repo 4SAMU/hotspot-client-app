@@ -11,18 +11,32 @@ import AccountCircleIcon from "@mui/icons-material/AccountCircle";
 import LoginIcon from "@mui/icons-material/Login";
 import PersonAddAltIcon from "@mui/icons-material/PersonAddAlt";
 import CreateAccountModal from "@/components/modals/myAccount/createAccount";
+import LoginToAccount from "@/components/modals/myAccount/loginToAccount";
 
 const MyAccountMainPage = () => {
   const { theme } = useTheme();
 
   const [isCreateAccountOpen, setIsCreateAccountOpen] = useState(false);
+  const [isLoginOpen, setIsLoginOpen] = useState(false);
 
+  // Handle Create Account Modal
   const handleOpenCreateAccount = () => {
     setIsCreateAccountOpen(true);
   };
 
+  // Handle Login Modal
   const handleCloseCreateAccount = () => {
     setIsCreateAccountOpen(false);
+  };
+
+  // Handle Login Modal
+  const handleOpenLogin = () => {
+    setIsLoginOpen(true);
+  };
+
+  // Handle Login Modal
+  const handleCloseLogin = () => {
+    setIsLoginOpen(false);
   };
 
   return (
@@ -97,6 +111,7 @@ const MyAccountMainPage = () => {
               borderColor: theme.colors.primary,
               color: theme.colors.primary,
             }}
+            onClick={handleOpenLogin}
           >
             <LoginIcon sx={{ marginRight: "5px" }} />
             Log In
@@ -107,6 +122,13 @@ const MyAccountMainPage = () => {
       <CreateAccountModal
         open={isCreateAccountOpen}
         onClose={handleCloseCreateAccount}
+        handleLoginClick={handleOpenLogin}
+      />
+
+      <LoginToAccount
+        open={isLoginOpen}
+        onClose={handleCloseLogin}
+        handleCreateAccountClick={handleOpenCreateAccount}
       />
     </DefaultLayout>
   );
