@@ -147,18 +147,18 @@ export const OfferBannerContainer = styled("div")(({ theme }) => ({
 
 export const OfferBannerCard = styled("div")(({ theme }) => ({
   position: "relative",
-  isolation: "isolate",
   display: "flex",
   flexDirection: "row",
   backgroundColor: `${theme.colors.primary}50`,
   color: theme.colors.textColor,
   borderRadius: "8px",
-  height: "120px",
+  height: "125px",
   width: "100%",
   maxWidth: "100%",
   userSelect: "none",
   WebkitUserSelect: "none",
   WebkitTouchCallout: "none",
+  // padding: "0 0 15px 0",
 
   boxSizing: "border-box",
 
@@ -183,7 +183,7 @@ export const OfferBannerCard = styled("div")(({ theme }) => ({
   },
   ".image-section": {
     width: "40%",
-    height: "120px",
+    height: "100%",
     overflow: "hidden",
     borderRadius: "55px 8px 8px 55px",
     borderLeft: `2px solid ${theme.colors.primary}80`,

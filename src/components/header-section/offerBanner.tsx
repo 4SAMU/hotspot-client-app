@@ -58,7 +58,12 @@ const OfferCard = ({
         <p className="description">{description}</p>
 
         <FilledButton
-          sx={{ position: "relative", marginTop: "10px", zIndex: 3 }}
+          sx={{
+            position: "relative",
+            marginTop: "10px",
+            zIndex: 3,
+            fontWeight: 600,
+          }}
           onClick={() =>
             openPaymentModal({
               title,
@@ -68,7 +73,7 @@ const OfferCard = ({
             })
           }
         >
-          Buy Now
+          Buy Now — {`Ksh.${price}`}
         </FilledButton>
       </Box>
 
