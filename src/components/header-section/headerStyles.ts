@@ -156,6 +156,9 @@ export const OfferBannerCard = styled("div")(({ theme }) => ({
   height: "120px",
   width: "100%",
   maxWidth: "100%",
+  userSelect: "none",
+  WebkitUserSelect: "none",
+  WebkitTouchCallout: "none",
 
   boxSizing: "border-box",
 

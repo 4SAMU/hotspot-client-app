@@ -81,6 +81,9 @@ export const PackagesCardContainer = styled("div")({
   marginTop: "10px",
   width: "100%",
   transition: "all 0.3s ease-in-out",
+  userSelect: "none",
+  WebkitUserSelect: "none",
+  WebkitTouchCallout: "none",
 
   "@media (max-width: 355px)": {
     gap: "8px",
@@ -169,6 +172,9 @@ export const PackagesCardContainerInListView = styled("div")({
   width: "100%",
   transition: "all 0.3s ease-in-out",
   gap: "10px",
+  userSelect: "none",
+  WebkitUserSelect: "none",
+  WebkitTouchCallout: "none",
 
   "&.grid": {
     display: "none",

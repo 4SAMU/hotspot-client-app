@@ -13,20 +13,20 @@ import { PackageProps, usePayment } from "@/context/PaymentModalContext";
 const offers: PackageProps[] = [
   {
     title: "3 Days Unlimited",
-    price: 120,
-    features: ["Get 3 Days Unlimited connection at only Kes.120"],
+    price: 100,
+    features: ["Get 3 Days Unlimited connection at only Kes.100"],
     image: "https://picsum.photos/seed/moon/600/400",
   },
   {
     title: "7 Days Unlimited",
-    price: 250,
-    features: ["Get 7 Days Unlimited connection at only Kes.250"],
+    price: 199,
+    features: ["Get 7 Days Unlimited connection at only Kes.199"],
     image: "https://picsum.photos/seed/hotel/600/400",
   },
   {
     title: "30 Days Unlimited",
-    price: 800,
-    features: ["Get 30 Days Unlimited connection at only Kes.800"],
+    price: 550,
+    features: ["Get 30 Days Unlimited connection at only Kes.550"],
     image: "https://picsum.photos/seed/car/600/400",
   },
 ];

@@ -5,22 +5,12 @@ import {
   PackagesSectionContainer,
 } from "./packagesStyles";
 import { useTheme } from "@/hooks/useTheme";
+import { PackageProps, usePayment } from "@/context/PaymentModalContext";
 
-export interface Package {
-  title: string;
-  price: string;
-  features?: string[];
-  ribbon?: {
-    text?: string;
-    bgColor: string;
-    textColor: string;
-  };
-}
-
-const packages: Package[] = [
+const packages: PackageProps[] = [
   {
     title: "3 Days",
-    price: "KES 120",
+    price: 100,
     features: [
       "Enjoy 3 days of unlimited access",
       "Connect Upto 2 devices simultaneously",
@@ -33,7 +23,7 @@ const packages: Package[] = [
   },
   {
     title: "1 Week",
-    price: "KES 199",
+    price: 199,
     features: [
       "Enjoy 7 days of unlimited access",
       "Connect Upto 2 devices simultaneously",
@@ -46,7 +36,7 @@ const packages: Package[] = [
   },
   {
     title: "1 Month",
-    price: "KES 599",
+    price: 550,
     features: [
       "Enjoy 1 Month of unlimited access",
       "Connect Upto 2 devices simultaneously",
@@ -61,6 +51,8 @@ const packages: Package[] = [
 
 const MoreDealsPackagesSection = () => {
   const { theme } = useTheme();
+  const { openPaymentModal } = usePayment();
+
   return (
     <PackagesSectionContainer
       id="explore-more-deals"
@@ -81,7 +73,7 @@ const MoreDealsPackagesSection = () => {
           >
             <div className="header">
               <h3>{pkg.title}</h3>
-              <div className="price">{pkg.price}</div>
+              <div className="price">Ksh.{pkg.price}</div>
               <span>{pkg.ribbon?.text}</span>
             </div>
 
@@ -92,7 +84,18 @@ const MoreDealsPackagesSection = () => {
                 ))}
               </ul>
 
-              <FilledButton className="pkg_button">Buy Now</FilledButton>
+              <FilledButton
+                className="pkg_button"
+                onClick={() =>
+                  openPaymentModal({
+                    title: pkg.title,
+                    price: pkg.price,
+                    features: pkg.features ?? [],
+                  })
+                }
+              >
+                Buy Now
+              </FilledButton>
             </div>
           </MoreDealsPackageCard>
         ))}
