@@ -108,6 +108,8 @@ export const OfferBannerContainer = styled("div")(({ theme }) => ({
 
   ".alice-carousel": {
     width: "100%",
+    position: "relative",
+    zIndex: 1,
   },
 
   ".alice-carousel__stage-item": {
@@ -144,6 +146,8 @@ export const OfferBannerContainer = styled("div")(({ theme }) => ({
 }));
 
 export const OfferBannerCard = styled("div")(({ theme }) => ({
+  position: "relative",
+  isolation: "isolate",
   display: "flex",
   flexDirection: "row",
   backgroundColor: `${theme.colors.primary}50`,
@@ -189,6 +193,19 @@ export const OfferBannerCard = styled("div")(({ theme }) => ({
       objectPosition: "center",
       borderRadius: "inherit",
     },
+  },
+  ".controllers": {
+    position: "absolute",
+    height: "100%",
+    width: "50px",
+    background: "transparent",
+    zIndex: 0,
+  },
+  ".controllers.left_button": {
+    left: "0",
+  },
+  ".controllers.right_button": {
+    right: "0",
   },
 }));
 

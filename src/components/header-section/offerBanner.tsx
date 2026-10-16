@@ -36,9 +36,18 @@ interface OfferCardProps {
   description: string;
   image: string;
   price: number;
+  onPrev: () => void;
+  onNext: () => void;
 }
 
-const OfferCard = ({ title, description, image, price }: OfferCardProps) => {
+const OfferCard = ({
+  title,
+  description,
+  image,
+  price,
+  onPrev,
+  onNext,
+}: OfferCardProps) => {
   const { openPaymentModal } = usePayment();
 
   return (
@@ -49,7 +58,7 @@ const OfferCard = ({ title, description, image, price }: OfferCardProps) => {
         <p className="description">{description}</p>
 
         <FilledButton
-          sx={{ mt: "6px" }}
+          sx={{ position: "relative", marginTop: "10px", zIndex: 3 }}
           onClick={() =>
             openPaymentModal({
               title,
@@ -66,6 +75,8 @@ const OfferCard = ({ title, description, image, price }: OfferCardProps) => {
       <Box className="image-section">
         <img src={image} alt={title} />
       </Box>
+      <div className="controllers left_button" onClick={onPrev} />
+      <div className="controllers right_button" onClick={onNext} />
     </OfferBannerCard>
   );
 };
@@ -74,6 +85,19 @@ const OfferBanner = () => {
   const carouselRef = useRef<AliceCarousel | null>(null);
 
   const [activeIndex, setActiveIndex] = useState(0);
+
+  const goToSlide = (index: number) => {
+    carouselRef.current?.slideTo(index);
+    setActiveIndex(index);
+  };
+
+  const goToPrevious = () => {
+    carouselRef.current?.slidePrev();
+  };
+
+  const goToNext = () => {
+    carouselRef.current?.slideNext();
+  };
 
   const items = useMemo(
     () =>
@@ -84,6 +108,8 @@ const OfferBanner = () => {
           description={offer.features?.[0] ?? ""}
           image={offer.image ?? ""}
           price={offer.price}
+          onPrev={() => goToPrevious()}
+          onNext={() => goToNext()}
         />
       )),
     [],
@@ -91,11 +117,6 @@ const OfferBanner = () => {
 
   const handleSlideChanged = (e: any) => {
     setActiveIndex(e.item % offers.length);
-  };
-
-  const goToSlide = (index: number) => {
-    carouselRef.current?.slideTo(index);
-    setActiveIndex(index);
   };
 
   return (
